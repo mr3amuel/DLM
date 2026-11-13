@@ -1,0 +1,1969 @@
+{
+  "files": [
+    {
+      "path": ".github/workflows/macos-release.yml",
+      "sha256": "0f00604ef37043c4e9dae16ebc06727385e2d8e238ae6b41bd407d0ad828c36f",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "7dbcb19715696ca8de442acfd691598c07233d355546db8db74fbda5e9bd4ea6",
+      "purpose": "Native-only local-data exclusions"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "48edc61e26a6c76cc0d4c23394091345db1ca51ba203df4512737255f9486739",
+      "purpose": "Pruned native workspace dependency lock"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "81e4950b3afb488da2421fa45d7d925714ca608cbe64726fba98e6b5478316c4",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "README.md",
+      "sha256": "5c0357323f935afce4e823b4aef99d5bf1e856ecd6a2e7a046eedb9929b9a1d7",
+      "purpose": "Public native build and feature overview"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "0f97c78478963cfce9d72b1af736263931a6515fda5d92d0d63bb91123cbbf1b",
+      "purpose": "GitHub Private Vulnerability Reporting instructions"
+    },
+    {
+      "path": "SOURCE_AVAILABILITY.md",
+      "sha256": "a8d3c168ed4af98dc0c3467dd20a5cca30c897d46b24fbc874829a2a950b74e6",
+      "purpose": "Approved public visibility without an open-source grant"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "b6ba831b7bae00f07d968b3fe0444d3eddfd61cf5b19e924f5d4ca8e4826a9f9",
+      "purpose": "Rights boundary and explicit remaining dependency-compliance review"
+    },
+    {
+      "path": "browser-extension/chrome-public-key.txt",
+      "sha256": "7a32e13694e61c7f9c945cf3657a5ed5471c748b02b52febc76f2cddb316e824",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/chromium/manifest.json",
+      "sha256": "c8dc3b5f06e19b5e6e0903ff5e9be3426c9e17e23cac74b732d7d33bf31965e6",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/firefox/manifest.json",
+      "sha256": "d6b28828ecfc23437867c44e21286347f14c5f8c3261e46c31e4b225b05e69b9",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/shared/_locales/en/messages.json",
+      "sha256": "4f139edad2df519e155477c22830b433f361a7d3e937b2b51f93157fd06ddca4",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/shared/_locales/fa/messages.json",
+      "sha256": "01feaa4bd9ababd1a24183cdc1a307bdba447321306289f39dc9f62eef200dda",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/shared/background.js",
+      "sha256": "cb5363872012c6eb2e77b5c5b8366730a40bd6169cfca7503afd520b98b1569a",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/shared/options.css",
+      "sha256": "60df20eea38750b4ebcfe11c07e746d4a128f870a633a518f339db2a757e6a53",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/shared/options.html",
+      "sha256": "f8e4af8283996cac3b8c0984af3a06f445c81385fe4d98c4e3507eb24e031dde",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/shared/options.js",
+      "sha256": "7b3e9e2caa717bed090b237d2c667acd3f6b39d99b574b6c6c361c441d37e43c",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/shared/protocol.js",
+      "sha256": "f02d19f2b6c7edf1b484b908d6356f63677c6187d8435c309bdbf4496f14c36c",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/tests/chrome_setup.test.cjs",
+      "sha256": "15759a988e013d44d3b4dfc5e02866afaade0134075b824e27eac478072ac005",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "browser-extension/tests/protocol.test.cjs",
+      "sha256": "f2cf5e374d85b48c33dfa262681b374da462b9349fcbf124588d7721864c4494",
+      "purpose": "Authenticated WebExtensions integration and tests"
+    },
+    {
+      "path": "crates/download_bridge/Cargo.toml",
+      "sha256": "835822610fab3c27821854e51a0d18d70476e821d80ef70e7e04da308b1db7f2",
+      "purpose": "Native messaging binary only"
+    },
+    {
+      "path": "crates/download_bridge/src/bin/dlm-browser-host.rs",
+      "sha256": "a974e121030cd236e6eddc0dc51835e51db54cb411a22e904b065ce0d2cbb7cb",
+      "purpose": "Native messaging host entry point"
+    },
+    {
+      "path": "crates/download_bridge/src/browser_host.rs",
+      "sha256": "bfde602555d87d490c5abfe7d0c52fb744a43540dca823e7fba6ec256526f4ea",
+      "purpose": "Native messaging authentication, inbox or setup"
+    },
+    {
+      "path": "crates/download_bridge/src/browser_inbox.rs",
+      "sha256": "65a7197acccdaef02c6d9e84c29ece5bba758fa717ee2c6a8f72c38eda970fd2",
+      "purpose": "Native messaging authentication, inbox or setup"
+    },
+    {
+      "path": "crates/download_bridge/src/browser_protocol.rs",
+      "sha256": "be433f5ff505e2d4438e719bec39131a0ee0cb8f3bcdf276d5306d3e97ef5048",
+      "purpose": "Native messaging authentication, inbox or setup"
+    },
+    {
+      "path": "crates/download_bridge/src/chrome_setup.rs",
+      "sha256": "70fe49ae86616f40c5d1000d12dccffc2ea247e003432509e531988f7e60a8de",
+      "purpose": "Native messaging authentication, inbox or setup"
+    },
+    {
+      "path": "crates/download_core/Cargo.toml",
+      "sha256": "ed479643a773ce394aabaa5a28d4b8223b9dccf5808d22b46c2598ba2aab9398",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/adaptive.rs",
+      "sha256": "ab5ce2a1303d4b9b2c85d5149d18cefa2b3859f0f1f4e76af453c051995a2ed7",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/automation.rs",
+      "sha256": "c99fd614ef28adfdc55a23986ba3c77f0d506849281ecf8ee9803c3890c44f8e",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/bandwidth.rs",
+      "sha256": "ce5de1db40e0ff70fad74ef2038950b68824d283617dd474d1142afec021c7cb",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/connections.rs",
+      "sha256": "27c95bf5ea445d3b2a4de9b8d01d5b0fd03ff41a988c3c8d9726d06f8fcd9307",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/engine.rs",
+      "sha256": "cb3c4193cb19df65504a4db89d8e827da8e7be9220f2fcad374402b1b0d77a9b",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/file_operations.rs",
+      "sha256": "c1fa9954dade277d347e495dff56db5f6d339980c32ae0aafeb9dda5b302f381",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/lib.rs",
+      "sha256": "cb791365280ffdd81edb47d24e2785f5a912edf49627f0b96bd9b6ce5e1531a1",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/model.rs",
+      "sha256": "60e3805526fb5f2ad983f0e59ccb1f133b72ae78adada07bf7619660ffbde45e",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/organization.rs",
+      "sha256": "ab7930279f0799d299603ff57e7d80fee67b088328f0b811481c94c8449e4925",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/ranges.rs",
+      "sha256": "803c20684e094f9671903adf6d14a5883955f69182da18237822a7a0aacc5fa2",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/recovery.rs",
+      "sha256": "affe2dd541216c1f716a8b2d8ffdb1bab1f077e53d0319c3af59b05afef9e64d",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/resume.rs",
+      "sha256": "19221cf7c5c2e134599806fa6117ba4ef77546498f231869e711d12bfa7e6164",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/retry.rs",
+      "sha256": "e214169a86f9183ea3b6e1ed9587b60822e1e48310683680248ee3157a3135c9",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/segmented.rs",
+      "sha256": "7911c8c8898111f0d4a03afb7a7ecfa886396aff311767fe5e63eda2e0d4da17",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/storage.rs",
+      "sha256": "4b3021599a878f2bc340c5d596b2432e9eb7db30494044c22f3d81a4dbc7a22a",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/telemetry.rs",
+      "sha256": "b55262687bd482ce5f7ad099ead31149893606107279b921ff8b70ccafcb3dce",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/src/transfer.rs",
+      "sha256": "991e1f570893a0ae3351dbbca7273c9738a0cfe2161adcbaacd4219bf45f77f8",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/automation.rs",
+      "sha256": "d429b163cf00ba2e73f28b043698e50767f8e2283fa89e991aa6b19d034ec2d5",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/cancelled_lifecycle.rs",
+      "sha256": "840ef34c185ed523b17eecb41340bb8ddeca5612d2c279dabfce8f342b0732e4",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/creation_time.rs",
+      "sha256": "571cdd601c5343e4b0b3058ae0814ca59c917c49c803625769b321fd8deaabe2",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/link_recovery.rs",
+      "sha256": "6c255e7711b3871872fb6d1ae258c9642b0c8b0e1e510014df9945d52b66950a",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/milestone3.rs",
+      "sha256": "66db35d4fcd90afab216ed0c0ebfd568b42538a7a2e75f5b0788dbd89e3b9f93",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/organization.rs",
+      "sha256": "22346d06733e1d4a46327164b754d5daa2b08bcec74cc30d9d0c8b4217283984",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/queue_policy.rs",
+      "sha256": "83f6f9b333bf734f3f15cca5a2f964fd61872482105baa6443f013310d4a3251",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/segmented.rs",
+      "sha256": "460770af689b4b93ad117a13fff59948a7da868978220ff242b6cc531b08b21c",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/startup.rs",
+      "sha256": "4fa4a48b80ee58879a75f51f922c637018c9cad07a93911d6da568fe9d8d0e39",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/support/mod.rs",
+      "sha256": "d16a9f5724e1137cbd3e913f16ba13f191893b31b30c85f5d9b0ae5fa34b2a14",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/support/queue_aging_restart.rs",
+      "sha256": "cd68a89f9ee52f953cce797ab294fc57842f08eff09ae3d41377c3b2fde8cc2d",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/telemetry_resume.rs",
+      "sha256": "3f214b94aaaed1b2e2b35dda9de5e059299e5bed802218c41b7cdb83ae8e4342",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "crates/download_core/tests/transfers.rs",
+      "sha256": "a14cf9d29aeec401e34013f25d2ba9c8c12569b75c46398dc0b2bc5b4e292ea4",
+      "purpose": "Shared portable Rust engine and deterministic tests"
+    },
+    {
+      "path": "docs/LAYOUT.md",
+      "sha256": "58fc1e953178bb925dcfffab45ac87c4dc8b6d1eb6ee0f3bb0f80008f85a71ef",
+      "purpose": "Purpose and source-boundary inventory"
+    },
+    {
+      "path": "docs/LICENSING_REVIEW.md",
+      "sha256": "26aae3348d9045df11a7d97e21acb7d2f7a88addbface24507249bf122dcd728",
+      "purpose": "Scoped initial-source license review and actionable binary release duties"
+    },
+    {
+      "path": "docs/PRIVACY_REVIEW.md",
+      "sha256": "026ceccaa2f1c8f2ce22ca37f3ec1fecbfd6de908379d1c0f4c3d4284a627fe5",
+      "purpose": "Scoped final privacy audit for the initial public-source commit"
+    },
+    {
+      "path": "docs/RELEASE.md",
+      "sha256": "25451487aee2d3d366bd163a22ffdf44ae53093408c1c423e1dc4c87fb5266e7",
+      "purpose": "Release approval, architecture and signing guidance"
+    },
+    {
+      "path": "prototypes/swiftui/Info.plist",
+      "sha256": "66c4f7d1f1f136dccf8dc2a7029a7e3b94272221c5166b4a4a6ffa4b374b4e65",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "prototypes/swiftui/Resources/DLMBrand.png",
+      "sha256": "16ad301d0d712022238572a14155c3b054b8e26ebd88eccc22954cae84171346",
+      "purpose": "Required original native DLM branding"
+    },
+    {
+      "path": "prototypes/swiftui/Resources/DLMIcon.icns",
+      "sha256": "99f2aa88c4dc856523c1501b1464394b5004af99707f1631b7b9aaaff960ceb8",
+      "purpose": "Required original native DLM branding"
+    },
+    {
+      "path": "prototypes/swiftui/Resources/fa.lproj/Localizable.strings",
+      "sha256": "aec89a8210dcc52205053977a8905d75761d1244f0e251cd95e8fae9517e84ab",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/Sandbox.entitlements",
+      "sha256": "9188e76eb56b5aac8d74ba7f863ee521b46042baec8f14928f3e35fdc37c7ec4",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/BrandColors.swift",
+      "sha256": "453062835f9ba9dd6508c6af2a9dcc4503df8046bb85f1a28c906cc7f5a1cc06",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/Design.swift",
+      "sha256": "6a6bd3ff6fdaf47711788f061a1a84266bb16683f7baaf0bdfff793c80851db5",
+      "purpose": "Approved native palette and visual components"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/DownloadFileLocation.swift",
+      "sha256": "e0d9e5e19793b035287fb12648ecbb6fa54550573d80314d2ad4e44e5b9a66da",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/DownloadListOptions.swift",
+      "sha256": "3236b5177cec65243a47bcc02cef0c073b417933852020788a2047fbc7d46a0d",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/DownloadModel.swift",
+      "sha256": "37f753d71395236da932701215afae1c6fb1f124054e1938c34f33e043fe14d3",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/DownloadSizeFilter.swift",
+      "sha256": "c25eb13878504a741de3b6d51673b07c58d759d80fc2d1461f9a16b13ab26ee9",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/DownloadsView.swift",
+      "sha256": "204d520d37b0edc22fbb1341927834740459e9801951c0cad33da597177b553d",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/EngineBridge.swift",
+      "sha256": "6917ed406818e641882442208aaa7af774b35dba222b85bd5890393b9169bfcb",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/ExperimentApp.swift",
+      "sha256": "11116d372eb4f076c5c7335a2253eda2ad3ee47ee270059ab00c3a62b24a33e2",
+      "purpose": "Native lifecycle without experimental fixture entry points"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/FolderAccess.swift",
+      "sha256": "1dee23ba0a8ae7339b45f7415b28d9de771a578c554accc7f35f029521fd7b0b",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/LatencyTrace.swift",
+      "sha256": "edb3ffa5b5d863cc8a5a599c1d6f314409e7866fd92e60100fe6c56464fd7cb9",
+      "purpose": "Internal instrumentation API; normal shell instrumentation disabled"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/MenuBarDownloadCenter.swift",
+      "sha256": "d17d1227fae54b6e1087a691c03902b4e759832edd19f4ef80e433152961487c",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeAppearance.swift",
+      "sha256": "821b35f3e59951c181e3a04c04a592c003988d29c2e74c9cb81859897a00ac50",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeChromeView.swift",
+      "sha256": "8ac9f32f5d12a140c568d63f043aa9a57e382903c8e8649ab756ba18307cfb47",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeDownloadTable.swift",
+      "sha256": "aadb715f04bdcef4db23fabb8305a9ef09ba97d76bbd929b9bcd4a7ec0d1f932",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeDownloadToolbar.swift",
+      "sha256": "d218817b3cfbba6471b506ae3ddfa8531579415d5d5522123d0f1468248cbbf4",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeIdentity.swift",
+      "sha256": "e99f984ccf50087438211135b80bcead3d0d17187e1be6889b4b615cf89c4f44",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeListKeyboard.swift",
+      "sha256": "895a1b45fd0d690fc3e2b6e94054631e9b9ba67d07a1d88ba39d2d467517ac69",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeNumber.swift",
+      "sha256": "dd740604c6c1725750a691773334c63602a95a7025234d42c9a3c5855e5e4a65",
+      "purpose": "Localized numeric parsing"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativePreferences.swift",
+      "sha256": "360a2546184f199fd4afcdd7e19efcfaa7585d46d7e7e292dde36864a93e738f",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeScheduleDraft.swift",
+      "sha256": "d83f9e861148c8a3f6b1f1dd8f627477b09ec9bc42d5584221da656b0a764d8d",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeSettingsView.swift",
+      "sha256": "d30d6130ed264d9a3d5af6b7a0322ac319c6b90a52133798dab350774cbe12c9",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeSettingsWindow.swift",
+      "sha256": "f56ce9a3f572aa70da0d311c46385e17a433acfa59848c17df84b94b49297539",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/NativeSidebarScroll.swift",
+      "sha256": "b15798ee636365122f94759f7e6c97ef15a839ce476a061fa88375ddb4e9a7fc",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/SchedulerView.swift",
+      "sha256": "385b99a96edf18c9cc4fe028a9c3aa7c87c57bea25d7a1af89b1db8a48691582",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Sources/TransferForms.swift",
+      "sha256": "9e94b77d637c13085c829086433907d1aae82a268881105af98a68985e8c92ca",
+      "purpose": "Native macOS application shell"
+    },
+    {
+      "path": "prototypes/swiftui/Tests/BrowserWorkflowChecks.swift",
+      "sha256": "9eb93d4011982e7c606cef1d37cfcaa1fd6eff273ee65a7491d5bed17ae431d4",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/Tests/DownloadListChecks.swift",
+      "sha256": "dccd498d63bc61f31e19d9218f207943517eaf25646ed077596bcab71a36cfac",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/Tests/DownloadWorkflowChecks.swift",
+      "sha256": "4cb79a2b6dc16a64c369a113857fabfa10ad016bcd1003e7b5582068016e373d",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/Tests/IdentityChecks.swift",
+      "sha256": "a3d79ad4486980c1f8db5eb86e0ef67168135e251199fa3e7ed020c73ab064f4",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/Tests/LifecycleFFI.c",
+      "sha256": "7894949b16e4c1905f2c3c41adddb53c178fd3d859a7bfd32c5e804553d94b79",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/Tests/LifecycleTests.swift",
+      "sha256": "9880bb6fee86f7b3df365d80c35bd024699d7f86dcafc19d52b5c903a3bc9ea9",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/Tests/NativeUnitTests.swift",
+      "sha256": "458552dac16d5a9e51b2e552abe546dedd1676363c5d2a29148b07f57bb3081d",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/Tests/ScheduleWorkflowChecks.swift",
+      "sha256": "a4176a0164863a2815195584360d629a7c82001043553526b8b69ce18c653631",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/Tests/lifecycle_ffi.h",
+      "sha256": "6267d69bfc3a9449f79a670c6e81edc81ed2733283c73a1278cdcfa2191facf3",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/bridge/Cargo.lock",
+      "sha256": "93b730a674fff7ad8faca100a6d8f117a52ccd96d1ba8500f49e69d695504f33",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "prototypes/swiftui/bridge/Cargo.toml",
+      "sha256": "bbc661356a5f5e7fe95c895a476ebaae6b156bccb8e2dd09affb25b4f6997bee",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "prototypes/swiftui/bridge/src/lib.rs",
+      "sha256": "55996e9fc47d3fec829adc890d9f4887cbfb9f9a52564a0b7220b3d034949d5b",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "prototypes/swiftui/build.sh",
+      "sha256": "f776268e505dd1c136b5f748d585fcf70a071873632a068087a80e081fd52996",
+      "purpose": "Native production build with static branding resources"
+    },
+    {
+      "path": "prototypes/swiftui/chrome-production-public-key.txt",
+      "sha256": "23dc94e3a04a50bc185565633d5a26c82f8f5c7f9b128bb27e263db732c94310",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "prototypes/swiftui/chrome-public-key.txt",
+      "sha256": "1ee9425c4daa3c6001bc2e372fb74233978d4e91a0fa37caeef1198da32b87e8",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "prototypes/swiftui/include/dlm_experiment.h",
+      "sha256": "f3b1990ff5e6e671595e8e0d95741d6fbd77c08d373d567da05dd057396ab81a",
+      "purpose": "Native tests, C ABI header or localization"
+    },
+    {
+      "path": "prototypes/swiftui/release-build.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "prototypes/swiftui/release-version.txt",
+      "sha256": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "prototypes/swiftui/scripts/export_brand_colors.py",
+      "sha256": "f8ebaccfe6291e672f79024e62328c1b9cf81c8eab5f9448459c373f9ed25073",
+      "purpose": "Native-only named accent catalog generator"
+    },
+    {
+      "path": "prototypes/swiftui/test.sh",
+      "sha256": "4ef9d454e72a0239e2ec5f5aeb7a0dc61c2914be0179678606b27b53af870ba5",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "prototypes/swiftui/test_lifecycle.sh",
+      "sha256": "7e8bed704c92a010b9eb93f73ef02653ca8a78908b38210d66bf306c0dfb783e",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "rust-toolchain.toml",
+      "sha256": "c3408601148e659ce09d22c41a74d71ed7e0dfa6bb239256423cc3d2b8254806",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "scripts/env.sh",
+      "sha256": "48b103a1d7f77eba4398947311749c01d9c42f445a21eb83921222e54f81fb5f",
+      "purpose": "Native build, tests, identity or release configuration"
+    },
+    {
+      "path": "scripts/release/background.swift",
+      "sha256": "1b9c19aa659887348453c6b81db83ac17cbb1097a143a63f04c3a77cd4bcd644",
+      "purpose": "Headless architecture-specific packaging and integrity checks"
+    },
+    {
+      "path": "scripts/release/dmg_settings.py",
+      "sha256": "e79feba1e09de7035a105fdc86909ce9757fd6e930c25b0a3ddb2c2311ed2b43",
+      "purpose": "Headless architecture-specific packaging and integrity checks"
+    },
+    {
+      "path": "scripts/release/package.py",
+      "sha256": "6b3071ddfaa41ba46c26de8243bf8cd7177554fd00628a38c7c4c456f65a180a",
+      "purpose": "Privacy- and rights-gated packaging"
+    },
+    {
+      "path": "scripts/release/policy.json",
+      "sha256": "2da9d5f5da9dd1e8154da24909e3db30e77bda705fbd1ba69d0f1195d0abccae",
+      "purpose": "Publication remains disabled"
+    },
+    {
+      "path": "scripts/release/privacy_audit.py",
+      "sha256": "ee0e0ed5462c22af03b32102456e5ae93e6114f97f480cff4993efa70003ddaf",
+      "purpose": "Offline redacted privacy triage with pre-Git snapshot support"
+    },
+    {
+      "path": "scripts/release/requirements.txt",
+      "sha256": "e6a24b3a74acb1bb03846bd26cf853d56098a272017342fcff24dc2ea7d51fe8",
+      "purpose": "Headless architecture-specific packaging and integrity checks"
+    },
+    {
+      "path": "scripts/release/test_release.py",
+      "sha256": "e844d175e29d116584615a0073b5cc82da6058e7c8f71a3533f5768736d82008",
+      "purpose": "Focused release safeguards tests"
+    },
+    {
+      "path": "scripts/release/verify_artifacts.py",
+      "sha256": "a489de464076020f8db0562862ac66d400c1bf3087874a020117103c7ef65c21",
+      "purpose": "Headless architecture-specific packaging and integrity checks"
+    },
+    {
+      "path": "third-party/RUST_DEPENDENCIES.json",
+      "sha256": "c7d4070fdfdc871a194c4c5477c9fb48898f0577c990bae53a7b3dd03f43015b",
+      "purpose": "Rust dependency SPDX expressions and shipped notice inventory"
+    },
+    {
+      "path": "third-party/rust/ahash-0.8.12/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/ahash-0.8.12/LICENSE-MIT",
+      "sha256": "0444c6991eead6822f7b9102e654448d51624431119546492e8b231db42c48bb",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/atomic-waker-1.1.2/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/atomic-waker-1.1.2/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/atomic-waker-1.1.2/LICENSE-THIRD-PARTY",
+      "sha256": "6226d0632e2e1a80c23597e964da9812ae193c535fe058154afb034e94167aa5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/autocfg-1.5.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/autocfg-1.5.1/LICENSE-MIT",
+      "sha256": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/axum-0.8.9/LICENSE",
+      "sha256": "6a13bc24a100a6812f053879ec51b126b103af7cda6dbf48c4188722da44da9f",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/axum-core-0.5.6/LICENSE",
+      "sha256": "008c87afcd2e626eaf564093250bed06dd7efb5732113264bba3dda8f1c556a1",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/base64-0.22.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/base64-0.22.1/LICENSE-MIT",
+      "sha256": "0dd882e53de11566d50f8e8e2d5a651bcf3fabee4987d70f306233cf39094ba7",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/base64-0.23.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/base64-0.23.1/LICENSE-MIT",
+      "sha256": "ab499c75a0f0da8e0fe83bf9ba3a27e5c39705310f07107c6c66b69958d2401c",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/bitflags-2.13.2/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/bitflags-2.13.2/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/block-buffer-0.10.4/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/block-buffer-0.10.4/LICENSE-MIT",
+      "sha256": "d5c22aa3118d240e877ad41c5d9fa232f9c77d757d4aac0c2f943afc0a95e0ef",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/bytes-1.12.1/LICENSE",
+      "sha256": "45f522cacecb1023856e46df79ca625dfc550c94910078bd8aec6e02880b3d42",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/cc-1.9.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/cc-1.9.0/LICENSE-MIT",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/cfg-if-1.0.5/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/cfg-if-1.0.5/LICENSE-MIT",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/cfg_aliases-0.2.2/LICENSE",
+      "sha256": "31b94860253d8ec7b4529f51901044d3b459d6292d996504a36b1bae3a36a812",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/cfg_aliases-0.2.2/NOTICES.md",
+      "sha256": "1e2b7ade3fb228130408b9990cae6a7618eb314c75aa0b164bfe485d9d9756ee",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/chacha20-0.10.2/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/chacha20-0.10.2/LICENSE-MIT",
+      "sha256": "b8c6939380a400f53e11923d50fcc4dd2fa1ba8339fd9d04cda38a0251b6c9b0",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/chrono-0.4.45/LICENSE.txt",
+      "sha256": "946c9835d8034d24404f8cfec5f4654cee5dad17e944afc3d06d742cf2882831",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/chrono-tz-0.10.4/LICENSE",
+      "sha256": "4789210f4df8abc03fce1cddd9c2ba517f184840687f2815d741de282c1aa93a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/chrono-tz-0.10.4/tz/LICENSE",
+      "sha256": "0613408568889f5739e5ae252b722a2659c02002839ad970a63dc5e9174b27cf",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/cpufeatures-0.2.17/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/cpufeatures-0.2.17/LICENSE-MIT",
+      "sha256": "ae9baa7beea910273c2f384c2a6b721fb7bd02bda3436074a1072e4ee689f985",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/cpufeatures-0.3.1/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/cpufeatures-0.3.1/LICENSE-MIT",
+      "sha256": "73b9dc2e79c7308998dd30296e073aefaefb944a68fb89aa412c23c0edcabcaa",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/crypto-common-0.1.7/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/crypto-common-0.1.7/LICENSE-MIT",
+      "sha256": "3521672491a3479422d5fe1aca6645dd2984090f85da6e5205abfb18fb7a6897",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/digest-0.10.7/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/digest-0.10.7/LICENSE-MIT",
+      "sha256": "9e0dfd2dd4173a530e238cb6adb37aa78c34c6bc7444e0e10c1ab5d8881f63ba",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/displaydoc-0.2.7/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/displaydoc-0.2.7/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/errno-0.3.14/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/errno-0.3.14/LICENSE-MIT",
+      "sha256": "8764a597675778ddfd4e25f81b08a05dbcf089ac05662df7613fe67f150e3aa2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/fallible-iterator-0.3.0/LICENSE-APACHE",
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/fallible-iterator-0.3.0/LICENSE-MIT",
+      "sha256": "0816e154b159ba255c563f7c8c7df5bbb8cc5fc96f5ab8cf9f4743b4f41fe7eb",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/fallible-streaming-iterator-0.1.9/LICENSE-APACHE",
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/fallible-streaming-iterator-0.1.9/LICENSE-MIT",
+      "sha256": "8dcec5569a9be5b0e086c80faed6f1aefa670af0ec29cecc2f714303096887e0",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/fastrand-2.5.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/fastrand-2.5.0/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/find-msvc-tools-0.1.15/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/find-msvc-tools-0.1.15/LICENSE-MIT",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/form_urlencoded-1.2.2/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/form_urlencoded-1.2.2/LICENSE-MIT",
+      "sha256": "20c7855c364d57ea4c97889a5e8d98470a9952dade37bd9248b9a54431670e5e",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/fs2-0.4.3/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/fs2-0.4.3/LICENSE-MIT",
+      "sha256": "7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-channel-0.3.34/LICENSE-APACHE",
+      "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-channel-0.3.34/LICENSE-MIT",
+      "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-core-0.3.34/LICENSE-APACHE",
+      "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-core-0.3.34/LICENSE-MIT",
+      "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-io-0.3.34/LICENSE-APACHE",
+      "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-io-0.3.34/LICENSE-MIT",
+      "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-macro-0.3.34/LICENSE-APACHE",
+      "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-macro-0.3.34/LICENSE-MIT",
+      "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-sink-0.3.34/LICENSE-APACHE",
+      "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-sink-0.3.34/LICENSE-MIT",
+      "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-task-0.3.34/LICENSE-APACHE",
+      "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-task-0.3.34/LICENSE-MIT",
+      "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-util-0.3.34/LICENSE-APACHE",
+      "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/futures-util-0.3.34/LICENSE-MIT",
+      "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/generic-array-0.14.7/LICENSE",
+      "sha256": "c09aae9d3c77b531f56351a9947bc7446511d6b025b3255312d3e3442a9a7583",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/getrandom-0.2.17/LICENSE-APACHE",
+      "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/getrandom-0.2.17/LICENSE-MIT",
+      "sha256": "42fa16951ce7f24b5a467a40e5b449a1d41e662f97ca779864f053f39e097737",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/getrandom-0.4.3/LICENSE-APACHE",
+      "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/getrandom-0.4.3/LICENSE-MIT",
+      "sha256": "523a42c25d245dde9c015f882cec7f4555aad883382a6cf19b4b7d9b2cd5419b",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hashbrown-0.14.5/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hashbrown-0.14.5/LICENSE-MIT",
+      "sha256": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hashlink-0.9.1/LICENSE-APACHE",
+      "sha256": "c144680885b29e4719e2a51f0aab5439a1e02d980692b5aaf086cae12727f28b",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hashlink-0.9.1/LICENSE-MIT",
+      "sha256": "e915669a595b11a200873df8286561881b0e04932f6412a585db6297ba0bc97c",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hmac-0.12.1/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hmac-0.12.1/LICENSE-MIT",
+      "sha256": "9e0dfd2dd4173a530e238cb6adb37aa78c34c6bc7444e0e10c1ab5d8881f63ba",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/http-1.5.0/LICENSE-APACHE",
+      "sha256": "8bb1b50b0e5c9399ae33bd35fab2769010fa6c14e8860c729a52295d84896b7a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/http-1.5.0/LICENSE-MIT",
+      "sha256": "dc91f8200e4b2a1f9261035d4c18c33c246911a6c0f7b543d75347e61b249cff",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/http-body-1.1.0/LICENSE",
+      "sha256": "248378d0a3383c173fb925f17141b88e71580b3ba17ddc6ac3d2a344683232ab",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/http-body-util-0.1.5/LICENSE",
+      "sha256": "248378d0a3383c173fb925f17141b88e71580b3ba17ddc6ac3d2a344683232ab",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/httparse-1.10.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/httparse-1.10.1/LICENSE-MIT",
+      "sha256": "391a5396cec6230bfabd4ef4eb2350eb895bc5efce377a2218f5702ed020d3e3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/httpdate-1.0.3/LICENSE-APACHE",
+      "sha256": "4d10fe5f3aa176b05b229a248866bad70b834c173f1252a814ff4748d8a13837",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/httpdate-1.0.3/LICENSE-MIT",
+      "sha256": "934887691e05d69d7c86ad3f2c360980fa30c15b035e351f3c9865e99da4debc",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hyper-1.12.0/LICENSE",
+      "sha256": "2d01890414494742ba4a509fcec8efa40f6d8be22cbd72be7cff08d6fda4ec89",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hyper-rustls-0.27.10/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hyper-rustls-0.27.10/LICENSE-ISC",
+      "sha256": "7cfafc877eccc46c0e346ccbaa5c51bb6b894d2b818e617d970211e232785ad4",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hyper-rustls-0.27.10/LICENSE-MIT",
+      "sha256": "709e3175b4212f7b13aa93971c9f62ff8c69ec45ad8c6532a7e0c41d7a7d6f8c",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/hyper-util-0.1.21/LICENSE",
+      "sha256": "9e0a97848ea543aef745c98e84fde696a9a3e0735538f6daefdd3cb1942effc1",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/icu_collections-2.4.0/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/icu_locale_core-2.4.0/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/icu_normalizer-2.4.0/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/icu_normalizer_data-2.4.0/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/icu_properties-2.4.0/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/icu_properties_data-2.4.0/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/icu_provider-2.4.0/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/idna-1.1.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/idna-1.1.0/LICENSE-MIT",
+      "sha256": "b38f11f6096706e6de553dabe2a7ed142d59b6fa8c97e290c67496154745cdd5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/idna_adapter-1.2.2/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/idna_adapter-1.2.2/LICENSE-MIT",
+      "sha256": "8b43ce8accd61e9d370b5ca9e9c4f953279b5c239926c62315b40e24df51b726",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/ipnet-2.12.2/LICENSE-APACHE",
+      "sha256": "87d9feb9238c6bd8e0024fc4733b06cff036f89f36d93b7df1c8a0549bbb7a5b",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/ipnet-2.12.2/LICENSE-MIT",
+      "sha256": "47dc9ff29128ddfb4d6a0435383c9f89120bc374dbcc1dd00b933a0b28aa7865",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/itoa-1.0.18/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/itoa-1.0.18/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/libc-0.2.191/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/libc-0.2.191/LICENSE-MIT",
+      "sha256": "123a331b5dbf04c30097fa43b8f858bc85df671fe776de498d01f3d6b7c1f69e",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/libsqlite3-sys-0.30.1/LICENSE",
+      "sha256": "f59ba65550f2a5adff98ec6478d783402c8e0a3eb515025c0b3438f3d30dc39e",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/libsqlite3-sys-0.30.1/sqlcipher/LICENSE",
+      "sha256": "ea4fcb309f14a22065e1ea45362d494d320012249ed865fe9c7c0946db754131",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/litemap-0.8.3/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/log-0.4.34/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/log-0.4.34/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/lru-slab-0.1.3/LICENSE-APACHE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/lru-slab-0.1.3/LICENSE-MIT",
+      "sha256": "1466d9b4f3a59bb8997fc8d5fa977ce3f6a24bb2358793c09bfdf007039f6486",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/lru-slab-0.1.3/LICENSE-ZLIB",
+      "sha256": "09785877275ffada6c371b652a30e95c26b435126fc0fc62f1bc2d72171f80a4",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/matchit-0.8.4/LICENSE",
+      "sha256": "de701d0618d694feb1af90f02181a1763d9b0bdeb70a3a592781e529077dba65",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/matchit-0.8.4/LICENSE.httprouter",
+      "sha256": "162ce11ad71338d0a0c6ebaf5c48af72c6ae237b468859d3656fe2d9ed3f3a85",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/memchr-2.8.3/COPYING",
+      "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/memchr-2.8.3/LICENSE-MIT",
+      "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/memchr-2.8.3/UNLICENSE",
+      "sha256": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/mime-0.3.17/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/mime-0.3.17/LICENSE-MIT",
+      "sha256": "df9cfd06d8a44d9a671eadd39ffd97f166481da015a30f45dfd27886209c5922",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/mio-1.2.4/LICENSE",
+      "sha256": "07919255c7e04793d8ea760d6c2ce32d19f9ff02bdbdde3ce90b1e1880929a9b",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/num-traits-0.2.19/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/num-traits-0.2.19/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/once_cell-1.21.4/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/once_cell-1.21.4/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/percent-encoding-2.3.2/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/percent-encoding-2.3.2/LICENSE-MIT",
+      "sha256": "b38f11f6096706e6de553dabe2a7ed142d59b6fa8c97e290c67496154745cdd5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/phf-0.12.1/LICENSE",
+      "sha256": "0ab4d106b6faac07fb6a051815fd1b4d862d730895e2d7d7358c2f13565e7a38",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/phf_shared-0.12.1/LICENSE",
+      "sha256": "0ab4d106b6faac07fb6a051815fd1b4d862d730895e2d7d7358c2f13565e7a38",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/pin-project-lite-0.2.17/LICENSE-APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/pin-project-lite-0.2.17/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/pkg-config-0.3.34/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/pkg-config-0.3.34/LICENSE-MIT",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/potential_utf-0.1.6/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/proc-macro2-1.0.107/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/proc-macro2-1.0.107/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/quinn-0.11.12/LICENSE-APACHE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/quinn-0.11.12/LICENSE-MIT",
+      "sha256": "4b2d0aca6789fa39e03d6738e869ea0988cceba210ca34ebb59c15c463e93a04",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/quinn-proto-0.11.19/LICENSE-APACHE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/quinn-proto-0.11.19/LICENSE-MIT",
+      "sha256": "4b2d0aca6789fa39e03d6738e869ea0988cceba210ca34ebb59c15c463e93a04",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/quinn-udp-0.5.16/LICENSE-APACHE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/quinn-udp-0.5.16/LICENSE-MIT",
+      "sha256": "4b2d0aca6789fa39e03d6738e869ea0988cceba210ca34ebb59c15c463e93a04",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/quote-1.0.47/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/quote-1.0.47/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rand-0.10.3/COPYRIGHT",
+      "sha256": "90eb64f0279b0d9432accfa6023ff803bc4965212383697eee27a0f426d5f8d5",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/rand-0.10.3/LICENSE-APACHE",
+      "sha256": "35242e7a83f69875e6edeff02291e688c97caafe2f8902e4e19b49d3e78b4cab",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rand-0.10.3/LICENSE-MIT",
+      "sha256": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rand_core-0.10.1/COPYRIGHT",
+      "sha256": "92b81db30f7ab6d693e0af5661a40d273ca1947e891123ed823924192c10cbc7",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/rand_core-0.10.1/LICENSE-APACHE",
+      "sha256": "6df43f6f4b5d4587f3d8d71e45532c688fd168afa5fe89d571cb32fa09c4ef51",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rand_core-0.10.1/LICENSE-MIT",
+      "sha256": "8b6e9feec03e7c9a5facb26855cecd31662bf989b636bcfe79521bdf8ac863f0",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rand_pcg-0.10.2/COPYRIGHT",
+      "sha256": "90eb64f0279b0d9432accfa6023ff803bc4965212383697eee27a0f426d5f8d5",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/rand_pcg-0.10.2/LICENSE-APACHE",
+      "sha256": "6df43f6f4b5d4587f3d8d71e45532c688fd168afa5fe89d571cb32fa09c4ef51",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rand_pcg-0.10.2/LICENSE-MIT",
+      "sha256": "2234e3cefee876aeb686ad89e978bdb07bf118a1186ab1cf161bcdf69d4b4f57",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/renamore-0.3.2/LICENSE-APACHE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/renamore-0.3.2/LICENSE-MIT",
+      "sha256": "4db8d464c5b0810ab9674735e1133d2713561bfe92986152abc4d35bc3195d64",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/reqwest-0.12.28/LICENSE-APACHE",
+      "sha256": "751963a8b88c0e3a9f27e98933079fbcf09b9998b2c13ac49c2e4d58444520d6",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/reqwest-0.12.28/LICENSE-MIT",
+      "sha256": "47d4e1803702728e03d30f8a848ae2249ba274bbd9f8443e803f7924d83cd371",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/ring-0.17.14/LICENSE",
+      "sha256": "b3d734001a94efff3579978d953391aa7115f877657d25eb54037a43875d078a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/ring-0.17.14/LICENSE-BoringSSL",
+      "sha256": "005fc765ddc5115da796cca915baa9557abae13ff35e0a47c47affc56f6c414d",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/ring-0.17.14/LICENSE-other-bits",
+      "sha256": "f025ccfb7dfb6bdfedc75ca0f67acc69e6fb4998143d834f7c2f38a29989680f",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/ring-0.17.14/src/polyfill/once_cell/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/ring-0.17.14/src/polyfill/once_cell/LICENSE-MIT",
+      "sha256": "6ee2ed6c77710de911761acd5fc1ad1da00f476beb1a7ef27e78c2d1858deafc",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/ring-0.17.14/third_party/fiat/LICENSE",
+      "sha256": "9eacbcb81be660840c714a560a9d65ba07913db98dd4baf969f78dd499fdd60f",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/rusqlite-0.32.1/LICENSE",
+      "sha256": "f59ba65550f2a5adff98ec6478d783402c8e0a3eb515025c0b3438f3d30dc39e",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustc-hash-2.1.3/LICENSE-APACHE",
+      "sha256": "95bd3988beee069fa2848f648dab43cc6e0b2add2ad6bcb17360caf749802bcc",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustc-hash-2.1.3/LICENSE-MIT",
+      "sha256": "30fefc3a7d6a0041541858293bcbea2dde4caa4c0a5802f996a7f7e8c0085652",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustix-1.1.5/COPYRIGHT",
+      "sha256": "377c2e7c53250cc5905c0b0532d35973392af16ffb9596a41d99d202cf3617c9",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/rustix-1.1.5/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustix-1.1.5/LICENSE-Apache-2.0_WITH_LLVM-exception",
+      "sha256": "268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustix-1.1.5/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustls-0.23.46/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustls-0.23.46/LICENSE-ISC",
+      "sha256": "7cfafc877eccc46c0e346ccbaa5c51bb6b894d2b818e617d970211e232785ad4",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustls-0.23.46/LICENSE-MIT",
+      "sha256": "709e3175b4212f7b13aa93971c9f62ff8c69ec45ad8c6532a7e0c41d7a7d6f8c",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustls-pki-types-1.15.1/LICENSE-APACHE",
+      "sha256": "45fd05c4865e7c350b98ad7ac50e1b15462d49af4a91e9b0c9dd933dc9a69742",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustls-pki-types-1.15.1/LICENSE-MIT",
+      "sha256": "9117d922e667125508dde62b02c1f57ed22f5ad21eb536aa2e2d99e1c796e639",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/rustls-webpki-0.103.16/LICENSE",
+      "sha256": "5b698ca13897be3afdb7174256fa1574f8c6892b8bea1a66dd6469d3fe27885a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/ryu-1.0.23/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/ryu-1.0.23/LICENSE-BOOST",
+      "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde-1.0.229/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde-1.0.229/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde_core-1.0.229/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde_core-1.0.229/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde_derive-1.0.229/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde_derive-1.0.229/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde_json-1.0.154/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde_json-1.0.154/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde_path_to_error-0.1.20/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde_path_to_error-0.1.20/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde_urlencoded-0.7.1/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/serde_urlencoded-0.7.1/LICENSE-MIT",
+      "sha256": "b9eb266294324f672cbe945fe8f2e32f85024f0d61a1a7d14382cdde0ac44769",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/sha2-0.10.9/LICENSE-APACHE",
+      "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/sha2-0.10.9/LICENSE-MIT",
+      "sha256": "b4eb00df6e2a4d22518fcaa6a2b4646f249b3a3c9814509b22bd2091f1392ff1",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/shlex-2.0.1/LICENSE-APACHE",
+      "sha256": "553fffcd9b1cb158bc3e9edc35da85ca5c3b3d7d2e61c883ebcfa8a65814b583",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/shlex-2.0.1/LICENSE-MIT",
+      "sha256": "4455bf75a91154108304cb283e0fea9948c14f13e20d60887cf2552449dea3b1",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/siphasher-1.0.4/COPYING",
+      "sha256": "c962ee4d1d05ddc138b202b2540219ebc57893fcf97b364852094a9a94ce1365",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/siphasher-1.0.4/LICENSE-APACHE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/siphasher-1.0.4/LICENSE-MIT",
+      "sha256": "f9c4c77baa3828004ee54b8a4f2db2e88ed44a6237a493965bf551fac0fcb62d",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/slab-0.4.12/LICENSE",
+      "sha256": "8ce0830173fdac609dfb4ea603fdc002c2f4af0dc9b1a005653f5da9cf534b18",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/smallvec-1.16.3/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/smallvec-1.16.3/LICENSE-MIT",
+      "sha256": "0b28172679e0009b655da42797c03fd163a3379d5cfa67ba1f1655e974a2a1a9",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/socket2-0.6.5/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/socket2-0.6.5/LICENSE-MIT",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/stable_deref_trait-1.2.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/stable_deref_trait-1.2.1/LICENSE-MIT",
+      "sha256": "5e05b024f653a5ce199e77cbbbd42fb5553562ec714b819421ed0c3e552a75d7",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/subtle-2.6.1/LICENSE",
+      "sha256": "d1fc1bc0d155df60b2e7705b6b2ae02a05c96f948e1cec6e2fb86360b09f346b",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/syn-3.0.9/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/syn-3.0.9/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/sync_wrapper-1.0.2/LICENSE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/synstructure-0.14.0/LICENSE",
+      "sha256": "219920e865eee70b7dcfc948a86b099e7f4fe2de01bcca2ca9a20c0a033f2b59",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tempfile-3.27.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tempfile-3.27.0/LICENSE-MIT",
+      "sha256": "8b427f5bc501764575e52ba4f9d95673cf8f6d80a86d0d06599852e1a9a20a36",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/thiserror-2.0.21/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/thiserror-2.0.21/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/thiserror-impl-2.0.21/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/thiserror-impl-2.0.21/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tinystr-0.8.5/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tinyvec-1.13.3/LICENSE-APACHE.md",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tinyvec-1.13.3/LICENSE-MIT.md",
+      "sha256": "fd80a26fbb3f644af1fa994134446702932968519797227e07a1368dea80f0bc",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tinyvec-1.13.3/LICENSE-ZLIB.md",
+      "sha256": "84b34dd7608f7fb9b17bd588a6bf392bf7de504e2716f024a77d89f1b145a151",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tokio-1.54.1/LICENSE",
+      "sha256": "253cd04c6714889df2d32f3f64d669179a1c95c76ac43c40882c52eb06bc3552",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tokio-macros-2.7.2/LICENSE",
+      "sha256": "0b83dc40cba89b9922bb84b0a9c7d2768ce37c1d7e138b7424fd4549915778c9",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tokio-rustls-0.26.6/LICENSE-APACHE",
+      "sha256": "cc117d90b498b32b11a886f279b359da16a73c3b01efbb2f5cc004b20262334e",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tokio-rustls-0.26.6/LICENSE-MIT",
+      "sha256": "e20fa2b8e0a2565f24a792b94b4bf4b6c2b9d36f781d8a9516e218a036e6677a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tokio-util-0.7.20/LICENSE",
+      "sha256": "253cd04c6714889df2d32f3f64d669179a1c95c76ac43c40882c52eb06bc3552",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tower-0.5.3/LICENSE",
+      "sha256": "4249c8e6c5ebb85f97c77e6457c6fafc1066406eb8f1ef61e796fbdc5ff18482",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tower-http-0.6.11/LICENSE",
+      "sha256": "5049cf464977eff4b4fcfa7988d84e74116956a3eb9d5f1d451b3f828f945233",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tower-layer-0.3.3/LICENSE",
+      "sha256": "4249c8e6c5ebb85f97c77e6457c6fafc1066406eb8f1ef61e796fbdc5ff18482",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tower-service-0.3.3/LICENSE",
+      "sha256": "4249c8e6c5ebb85f97c77e6457c6fafc1066406eb8f1ef61e796fbdc5ff18482",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tracing-0.1.44/LICENSE",
+      "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tracing-core-0.1.36/LICENSE",
+      "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/tracing-core-0.1.36/src/spin/LICENSE",
+      "sha256": "58545fed1565e42d687aecec6897d35c6d37ccb71479a137c0deb2203e125c79",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/try-lock-0.2.5/LICENSE",
+      "sha256": "c816a0749cdc6bf062a5111c159723de51b2bfac66a1dac2655abd9e6b1583eb",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/typenum-1.20.1/LICENSE",
+      "sha256": "db11fec9946737df39ca3898d9cd8c10ec6f6c3a884a6802b0ad0b81b4e8f23a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/typenum-1.20.1/LICENSE-APACHE",
+      "sha256": "516b24e051bf5630880ebbd55c40a25ce9552ebaf8970a53e8976eb70e522406",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/typenum-1.20.1/LICENSE-MIT",
+      "sha256": "a825bd853ab71619a4923d7b4311221427848070ff44d990da39b0b274c1683f",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/unicode-ident-1.0.27/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/unicode-ident-1.0.27/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/unicode-ident-1.0.27/LICENSE-UNICODE",
+      "sha256": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/untrusted-0.9.0/LICENSE.txt",
+      "sha256": "7abd9b6960dcf7d4d0a48606a5b71bfe37d472db68d70637f3a58a56785f1621",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/url-2.5.8/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/url-2.5.8/LICENSE-MIT",
+      "sha256": "b38f11f6096706e6de553dabe2a7ed142d59b6fa8c97e290c67496154745cdd5",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/utf8_iter-1.0.4/COPYRIGHT",
+      "sha256": "c30152c94a6d75e021adbc52b3a52470366a46edb917e17deae3259251af244c",
+      "purpose": "Required nested license or referenced public attribution"
+    },
+    {
+      "path": "third-party/rust/utf8_iter-1.0.4/LICENSE-APACHE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/utf8_iter-1.0.4/LICENSE-MIT",
+      "sha256": "3fa4ca83dcc9237839b1bdeb2e6d16bdfb5ec0c5ce42b24694d8bbf0dcbef72c",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/uuid-1.28.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/uuid-1.28.0/LICENSE-MIT",
+      "sha256": "436bc5a105d8e57dcd8778730f3754f7bf39c14d2f530e4cde4bd2d17a83ec3d",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/vcpkg-0.2.15/LICENSE-APACHE",
+      "sha256": "60c93a31f490375aadf64098b75f10715010379541021e00261045d7800611d3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/vcpkg-0.2.15/LICENSE-MIT",
+      "sha256": "016d20f335060a70e79d9fcf8dfaa6201114d65d592211f4bdfb8ae9ca2bc1dc",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/version_check-0.9.5/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/version_check-0.9.5/LICENSE-MIT",
+      "sha256": "b7e650f3fce5c53249d1cdc608b54df156a97edd636cf9d23498d0cfe7aec63e",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/want-0.3.2/LICENSE",
+      "sha256": "a65f5d0a945d267751344c95665945b90c030ea107faf5c85d518929886187da",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/webpki-roots-1.0.10/LICENSE",
+      "sha256": "e271993808fec50ab29350b39539cdec611a9103f827e0aa26d61da70e2d33f8",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/writeable-0.6.4/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/yoke-0.8.4/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/yoke-derive-0.8.4/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zerocopy-0.8.63/LICENSE-APACHE",
+      "sha256": "9d185ac6703c4b0453974c0d85e9eee43e6941009296bb1f5eb0b54e2329e9f3",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zerocopy-0.8.63/LICENSE-BSD",
+      "sha256": "83c1763356e822adde0a2cae748d938a73fdc263849ccff6b27776dff213bd32",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zerocopy-0.8.63/LICENSE-MIT",
+      "sha256": "1a2f5c12ddc934d58956aa5dbdd3255fe55fd957633ab7d0d39e4f0daa73f7df",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zerofrom-0.1.8/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zerofrom-derive-0.1.8/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zeroize-1.9.1/LICENSE-APACHE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zeroize-1.9.1/LICENSE-MIT",
+      "sha256": "8c7516d4b27b1e495be5e38b612298b63de48d05f49cdac94f70f3cd70f8864b",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zerotrie-0.2.5/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zerovec-0.11.9/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zerovec-derive-0.11.7/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+      "purpose": "Required public third-party license/attribution text"
+    },
+    {
+      "path": "third-party/rust/zmij-1.0.23/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "purpose": "Required public third-party license/attribution text"
+    }
+  ]
+}

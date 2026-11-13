@@ -1,0 +1,12 @@
+[workspace]
+members = ["crates/download_core", "crates/download_bridge"]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+publish = false
+rust-version = "1.94"
+
+[workspace.dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "fs", "io-util", "sync", "time", "net"] }
+serde = { version = "1", features = ["derive"] }

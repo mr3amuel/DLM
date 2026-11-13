@@ -1,0 +1,104 @@
+{
+  "extensionName": {
+    "message": "DLM — Download with DLM"
+  },
+  "extensionDescription": {
+    "message": "Send a chosen link to DLM for review. No automatic downloads or page monitoring."
+  },
+  "downloadWithDlm": {
+    "message": "Download with DLM"
+  },
+  "privacy": {
+    "message": "Only the link you explicitly choose is sent locally to DLM. No browsing history, page data, cookies, credentials or authorization headers are collected."
+  },
+  "setup": {
+    "message": "Setup and pairing"
+  },
+  "installStep": {
+    "message": "Install the native host using the commands in DLM’s docs/browser-integration.md. Use your extension ID below when registering Chrome or Edge."
+  },
+  "enableStep": {
+    "message": "In DLM, open Settings → Browser Integration and enable integration."
+  },
+  "pairStep": {
+    "message": "Choose Show pairing code in DLM, then paste the code here and Save. Test the connection before using the link context menu."
+  },
+  "extensionId": {
+    "message": "Extension ID:"
+  },
+  "pairingCode": {
+    "message": "Pairing code"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "testConnection": {
+    "message": "Test connection"
+  },
+  "forget": {
+    "message": "Forget pairing"
+  },
+  "hostMissing": {
+    "message": "Native host could not be reached. Install/register it for this browser and extension ID, then restart the browser. Check enterprise Native Messaging policy if managed."
+  },
+  "troubleshooting": {
+    "message": "DLM must be installed at the registered path. If you changed its location or extension ID, repeat host registration. Pairing codes are stored locally, never synced. Reset pairing in DLM to revoke old codes."
+  },
+  "nativeDocs": {
+    "message": "Native Messaging documentation"
+  },
+  "ready": {
+    "message": "Connected. Chosen links will open in DLM for review."
+  },
+  "queued": {
+    "message": "Sent to DLM for review. Nothing has started downloading."
+  },
+  "unpaired": {
+    "message": "Pairing is missing or invalid. Copy a fresh code from DLM and Save it here."
+  },
+  "disabled": {
+    "message": "Enable Browser Integration in DLM Settings first."
+  },
+  "busy": {
+    "message": "DLM’s review queue is full. Review or cancel pending drafts, then try again."
+  },
+  "outdated": {
+    "message": "DLM or its native host uses an incompatible protocol. Update DLM and re-register the matching host."
+  },
+  "unavailable": {
+    "message": "DLM could not be reached. Open/update DLM, enable Browser Integration, and verify the registered app/inbox paths."
+  },
+  "unauthorized": {
+    "message": "This extension ID is not registered. Repeat host installation with the ID shown above."
+  },
+  "invalidUrl": {
+    "message": "Choose a standalone HTTP/HTTPS link without embedded credentials. Other URL types cannot be handed off."
+  },
+  "unsafeStorage": {
+    "message": "The native host’s local configuration has unsafe permissions. Re-register it using the setup instructions."
+  },
+  "unsupported": {
+    "message": "Native host installation/launch is currently supported on macOS. Windows/Linux support is planned."
+  },
+  "saved": {
+    "message": "Pairing saved locally. Use Test connection to verify it."
+  },
+  "forgotten": {
+    "message": "Pairing removed from this browser. Reset pairing in DLM to revoke the old code everywhere."
+  },
+  "consent": {
+    "message": "Allow sending only links I explicitly choose to the local DLM application for review."
+  },
+  "managedInstallStep": {
+    "message": "In DLM, open Settings → Browser Integration → Set Up or Reconnect Chrome."
+  },
+  "managedEnableStep": {
+    "message": "Continue in DLM after loading the extension so it can register the connection."
+  },
+  "managedPairStep": {
+    "message": "Paste the code from DLM. Allow and Connect lets the extension send links you explicitly choose to DLM for review."
+  },
+  "allowAndConnect": {
+    "message": "Allow and Connect"
+  }
+}

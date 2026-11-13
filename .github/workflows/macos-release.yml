@@ -1,0 +1,110 @@
+name: Intentional macOS release candidates
+on:
+  workflow_dispatch:
+    inputs:
+      create_draft:
+        description: Create a draft only after the protected publication approval
+        type: boolean
+        default: false
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+concurrency:
+  group: macos-release-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  gate:
+    if: vars.DLM_PUBLICATION_APPROVED == 'true' && (github.event_name == 'push' || github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Require committed privacy and license approval; validate tag
+        run: python3 scripts/release/package.py preflight
+  build:
+    needs: gate
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - arch: arm64
+            runner: macos-15
+          - arch: x86_64
+            runner: macos-15-intel
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 75
+    env:
+      DLM_NATIVE_CONFIGURATION: production
+      DLM_NATIVE_SANDBOX: '0'
+      DLM_NATIVE_ARCH: ${{ matrix.arch }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Verify approval and toolchain
+        run: |
+          set -euo pipefail
+          python3 scripts/release/package.py preflight
+          rustup toolchain install 1.94.0 --profile minimal
+          python3 -m venv "$RUNNER_TEMP/dmg-tools"
+          "$RUNNER_TEMP/dmg-tools/bin/pip" install --disable-pip-version-check -q -r scripts/release/requirements.txt
+          echo "$RUNNER_TEMP/dmg-tools/bin" >> "$GITHUB_PATH"
+      - name: Build production candidate without publishing workspace diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! ./prototypes/swiftui/build.sh release > "$RUNNER_TEMP/dlm-build.log" 2>&1; then
+            echo 'Native build failed. Review the build configuration locally; workspace logs are not uploaded.'
+            exit 1
+          fi
+      - name: Verify bundle, package DMG, verify contents and checksum
+        id: package
+        env:
+          PACKAGE_ARCH: ${{ matrix.arch }}
+        run: python3 scripts/release/package.py "$PACKAGE_ARCH"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: macos-${{ matrix.arch }}
+          path: |
+            ${{ steps.package.outputs.dmg }}
+            ${{ steps.package.outputs.checksum }}
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
+          include-hidden-files: false
+  draft:
+    needs: build
+    if: github.event_name == 'workflow_dispatch' && inputs.create_draft && vars.DLM_DRAFT_RELEASE_APPROVED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: public-release
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: macos-*
+          merge-multiple: true
+          path: dist
+      - name: Verify exact assets and create draft only
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/release/package.py preflight
+          python3 scripts/release/verify_artifacts.py
+          version=$(cat prototypes/swiftui/release-version.txt)
+          tag="v$version"
+          test "$(git rev-parse "refs/tags/$tag^{commit}")" = "$GITHUB_SHA"
+          gh release create "$tag" --verify-tag --draft --title "DLM $version" --notes-file docs/release/RELEASE_NOTES.md --repo "$GITHUB_REPOSITORY" \
+            "dist/DLM-$version-macOS-arm64.dmg" "dist/DLM-$version-macOS-arm64.dmg.sha256" \
+            "dist/DLM-$version-macOS-x86_64.dmg" "dist/DLM-$version-macOS-x86_64.dmg.sha256"

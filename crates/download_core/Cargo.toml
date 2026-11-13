@@ -1,0 +1,27 @@
+[package]
+name = "download_core"
+version = "0.1.0"
+edition.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std"] }
+chrono-tz = "0.10"
+tokio.workspace = true
+serde.workspace = true
+serde_json = "1"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "stream"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+uuid = { version = "1", features = ["v4"] }
+sha2 = "0.10"
+thiserror = "2"
+fs2 = "0.4"
+libc = "0.2"
+httpdate = "1"
+renamore = "=0.3.2"
+
+[dev-dependencies]
+tempfile = "3"
+axum = "0.8"
+futures-util = "0.3"

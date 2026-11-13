@@ -1,0 +1,5 @@
+:root{color-scheme:light;font:14px system-ui,sans-serif;color:#1d2638;background:#f5f7fb}main{max-width:580px;margin:36px auto;padding:28px;background:white;border:1px solid #dce2eb;border-radius:12px}h1{margin:0;color:#0755ff}h2{font-size:16px}p,li{line-height:1.7}code{overflow-wrap:anywhere}label{display:block;margin:16px 0 6px}input{box-sizing:border-box;width:100%;padding:10px;border:1px solid #b7c1d0;border-radius:6px}button{margin-block-start:12px;margin-inline-end:8px;padding:8px 14px;border:1px solid #aab7ca;border-radius:6px;background:#f7f9fc;color:inherit;cursor:pointer}button[type=submit]{background:#0755ff;color:white}button:disabled{opacity:.55;cursor:default}#status{font-weight:600}a{color:#0755ff}
+
+input[type=checkbox]{width:auto;margin-inline-end:8px}
+
+label[hidden],p[hidden]{display:none}

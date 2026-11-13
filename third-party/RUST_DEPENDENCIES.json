@@ -1,0 +1,2336 @@
+[
+  {
+    "name": "ahash",
+    "version": "0.8.12",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/ahash-0.8.12/LICENSE-APACHE",
+      "third-party/rust/ahash-0.8.12/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "atomic-waker",
+    "version": "1.1.2",
+    "license_expression": "Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/atomic-waker-1.1.2/LICENSE-APACHE",
+      "third-party/rust/atomic-waker-1.1.2/LICENSE-MIT",
+      "third-party/rust/atomic-waker-1.1.2/LICENSE-THIRD-PARTY"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "autocfg",
+    "version": "1.5.1",
+    "license_expression": "Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/autocfg-1.5.1/LICENSE-APACHE",
+      "third-party/rust/autocfg-1.5.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "axum",
+    "version": "0.8.9",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/axum-0.8.9/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "test"
+    ]
+  },
+  {
+    "name": "axum-core",
+    "version": "0.5.6",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/axum-core-0.5.6/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "test"
+    ]
+  },
+  {
+    "name": "base64",
+    "version": "0.22.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/base64-0.22.1/LICENSE-APACHE",
+      "third-party/rust/base64-0.22.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "base64",
+    "version": "0.23.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/base64-0.23.1/LICENSE-APACHE",
+      "third-party/rust/base64-0.23.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "bitflags",
+    "version": "2.13.2",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/bitflags-2.13.2/LICENSE-APACHE",
+      "third-party/rust/bitflags-2.13.2/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "build",
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "block-buffer",
+    "version": "0.10.4",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/block-buffer-0.10.4/LICENSE-APACHE",
+      "third-party/rust/block-buffer-0.10.4/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "bytes",
+    "version": "1.12.1",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/bytes-1.12.1/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "cc",
+    "version": "1.9.0",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/cc-1.9.0/LICENSE-APACHE",
+      "third-party/rust/cc-1.9.0/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "cfg-if",
+    "version": "1.0.5",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/cfg-if-1.0.5/LICENSE-APACHE",
+      "third-party/rust/cfg-if-1.0.5/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "build",
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "cfg_aliases",
+    "version": "0.2.2",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/cfg_aliases-0.2.2/LICENSE",
+      "third-party/rust/cfg_aliases-0.2.2/NOTICES.md"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "chacha20",
+    "version": "0.10.2",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/chacha20-0.10.2/LICENSE-APACHE",
+      "third-party/rust/chacha20-0.10.2/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "chrono",
+    "version": "0.4.45",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/chrono-0.4.45/LICENSE.txt"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "chrono-tz",
+    "version": "0.10.4",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/chrono-tz-0.10.4/LICENSE",
+      "third-party/rust/chrono-tz-0.10.4/tz/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "cpufeatures",
+    "version": "0.2.17",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/cpufeatures-0.2.17/LICENSE-APACHE",
+      "third-party/rust/cpufeatures-0.2.17/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "cpufeatures",
+    "version": "0.3.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/cpufeatures-0.3.1/LICENSE-APACHE",
+      "third-party/rust/cpufeatures-0.3.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "crypto-common",
+    "version": "0.1.7",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/crypto-common-0.1.7/LICENSE-APACHE",
+      "third-party/rust/crypto-common-0.1.7/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "digest",
+    "version": "0.10.7",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/digest-0.10.7/LICENSE-APACHE",
+      "third-party/rust/digest-0.10.7/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "displaydoc",
+    "version": "0.2.7",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/displaydoc-0.2.7/LICENSE-APACHE",
+      "third-party/rust/displaydoc-0.2.7/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "errno",
+    "version": "0.3.14",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/errno-0.3.14/LICENSE-APACHE",
+      "third-party/rust/errno-0.3.14/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build",
+      "test"
+    ]
+  },
+  {
+    "name": "fallible-iterator",
+    "version": "0.3.0",
+    "license_expression": "MIT/Apache-2.0",
+    "notices": [
+      "third-party/rust/fallible-iterator-0.3.0/LICENSE-APACHE",
+      "third-party/rust/fallible-iterator-0.3.0/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "fallible-streaming-iterator",
+    "version": "0.1.9",
+    "license_expression": "MIT/Apache-2.0",
+    "notices": [
+      "third-party/rust/fallible-streaming-iterator-0.1.9/LICENSE-APACHE",
+      "third-party/rust/fallible-streaming-iterator-0.1.9/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "fastrand",
+    "version": "2.5.0",
+    "license_expression": "Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/fastrand-2.5.0/LICENSE-APACHE",
+      "third-party/rust/fastrand-2.5.0/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build",
+      "test"
+    ]
+  },
+  {
+    "name": "find-msvc-tools",
+    "version": "0.1.15",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/find-msvc-tools-0.1.15/LICENSE-APACHE",
+      "third-party/rust/find-msvc-tools-0.1.15/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "form_urlencoded",
+    "version": "1.2.2",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/form_urlencoded-1.2.2/LICENSE-APACHE",
+      "third-party/rust/form_urlencoded-1.2.2/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "fs2",
+    "version": "0.4.3",
+    "license_expression": "MIT/Apache-2.0",
+    "notices": [
+      "third-party/rust/fs2-0.4.3/LICENSE-APACHE",
+      "third-party/rust/fs2-0.4.3/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "futures-channel",
+    "version": "0.3.34",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/futures-channel-0.3.34/LICENSE-APACHE",
+      "third-party/rust/futures-channel-0.3.34/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "futures-core",
+    "version": "0.3.34",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/futures-core-0.3.34/LICENSE-APACHE",
+      "third-party/rust/futures-core-0.3.34/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "futures-io",
+    "version": "0.3.34",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/futures-io-0.3.34/LICENSE-APACHE",
+      "third-party/rust/futures-io-0.3.34/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "futures-macro",
+    "version": "0.3.34",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/futures-macro-0.3.34/LICENSE-APACHE",
+      "third-party/rust/futures-macro-0.3.34/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "futures-sink",
+    "version": "0.3.34",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/futures-sink-0.3.34/LICENSE-APACHE",
+      "third-party/rust/futures-sink-0.3.34/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "futures-task",
+    "version": "0.3.34",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/futures-task-0.3.34/LICENSE-APACHE",
+      "third-party/rust/futures-task-0.3.34/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "futures-util",
+    "version": "0.3.34",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/futures-util-0.3.34/LICENSE-APACHE",
+      "third-party/rust/futures-util-0.3.34/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "generic-array",
+    "version": "0.14.7",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/generic-array-0.14.7/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "getrandom",
+    "version": "0.2.17",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/getrandom-0.2.17/LICENSE-APACHE",
+      "third-party/rust/getrandom-0.2.17/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "getrandom",
+    "version": "0.4.3",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/getrandom-0.4.3/LICENSE-APACHE",
+      "third-party/rust/getrandom-0.4.3/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "build",
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "hashbrown",
+    "version": "0.14.5",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/hashbrown-0.14.5/LICENSE-APACHE",
+      "third-party/rust/hashbrown-0.14.5/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "hashlink",
+    "version": "0.9.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/hashlink-0.9.1/LICENSE-APACHE",
+      "third-party/rust/hashlink-0.9.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "hmac",
+    "version": "0.12.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/hmac-0.12.1/LICENSE-APACHE",
+      "third-party/rust/hmac-0.12.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime"
+    ]
+  },
+  {
+    "name": "http",
+    "version": "1.5.0",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/http-1.5.0/LICENSE-APACHE",
+      "third-party/rust/http-1.5.0/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "http-body",
+    "version": "1.1.0",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/http-body-1.1.0/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "http-body-util",
+    "version": "0.1.5",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/http-body-util-0.1.5/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "httparse",
+    "version": "1.10.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/httparse-1.10.1/LICENSE-APACHE",
+      "third-party/rust/httparse-1.10.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "httpdate",
+    "version": "1.0.3",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/httpdate-1.0.3/LICENSE-APACHE",
+      "third-party/rust/httpdate-1.0.3/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "hyper",
+    "version": "1.12.0",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/hyper-1.12.0/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "hyper-rustls",
+    "version": "0.27.10",
+    "license_expression": "Apache-2.0 OR ISC OR MIT",
+    "notices": [
+      "third-party/rust/hyper-rustls-0.27.10/LICENSE-APACHE",
+      "third-party/rust/hyper-rustls-0.27.10/LICENSE-ISC",
+      "third-party/rust/hyper-rustls-0.27.10/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "hyper-util",
+    "version": "0.1.21",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/hyper-util-0.1.21/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "icu_collections",
+    "version": "2.4.0",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/icu_collections-2.4.0/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "icu_locale_core",
+    "version": "2.4.0",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/icu_locale_core-2.4.0/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "icu_normalizer",
+    "version": "2.4.0",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/icu_normalizer-2.4.0/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "icu_normalizer_data",
+    "version": "2.4.0",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/icu_normalizer_data-2.4.0/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "icu_properties",
+    "version": "2.4.0",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/icu_properties-2.4.0/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "icu_properties_data",
+    "version": "2.4.0",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/icu_properties_data-2.4.0/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "icu_provider",
+    "version": "2.4.0",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/icu_provider-2.4.0/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "idna",
+    "version": "1.1.0",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/idna-1.1.0/LICENSE-APACHE",
+      "third-party/rust/idna-1.1.0/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "idna_adapter",
+    "version": "1.2.2",
+    "license_expression": "Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/idna_adapter-1.2.2/LICENSE-APACHE",
+      "third-party/rust/idna_adapter-1.2.2/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "ipnet",
+    "version": "2.12.2",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/ipnet-2.12.2/LICENSE-APACHE",
+      "third-party/rust/ipnet-2.12.2/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "itoa",
+    "version": "1.0.18",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/itoa-1.0.18/LICENSE-APACHE",
+      "third-party/rust/itoa-1.0.18/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "libc",
+    "version": "0.2.191",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/libc-0.2.191/LICENSE-APACHE",
+      "third-party/rust/libc-0.2.191/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "build",
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "libsqlite3-sys",
+    "version": "0.30.1",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/libsqlite3-sys-0.30.1/LICENSE",
+      "third-party/rust/libsqlite3-sys-0.30.1/sqlcipher/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "litemap",
+    "version": "0.8.3",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/litemap-0.8.3/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "log",
+    "version": "0.4.34",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/log-0.4.34/LICENSE-APACHE",
+      "third-party/rust/log-0.4.34/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "lru-slab",
+    "version": "0.1.3",
+    "license_expression": "MIT OR Apache-2.0 OR Zlib",
+    "notices": [
+      "third-party/rust/lru-slab-0.1.3/LICENSE-APACHE",
+      "third-party/rust/lru-slab-0.1.3/LICENSE-MIT",
+      "third-party/rust/lru-slab-0.1.3/LICENSE-ZLIB"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "matchit",
+    "version": "0.8.4",
+    "license_expression": "MIT AND BSD-3-Clause",
+    "notices": [
+      "third-party/rust/matchit-0.8.4/LICENSE",
+      "third-party/rust/matchit-0.8.4/LICENSE.httprouter"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT AND BSD-3-Clause",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "test"
+    ]
+  },
+  {
+    "name": "memchr",
+    "version": "2.8.3",
+    "license_expression": "Unlicense OR MIT",
+    "notices": [
+      "third-party/rust/memchr-2.8.3/COPYING",
+      "third-party/rust/memchr-2.8.3/LICENSE-MIT",
+      "third-party/rust/memchr-2.8.3/UNLICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "mime",
+    "version": "0.3.17",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/mime-0.3.17/LICENSE-APACHE",
+      "third-party/rust/mime-0.3.17/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "test"
+    ]
+  },
+  {
+    "name": "mio",
+    "version": "1.2.4",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/mio-1.2.4/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "num-traits",
+    "version": "0.2.19",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/num-traits-0.2.19/LICENSE-APACHE",
+      "third-party/rust/num-traits-0.2.19/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "once_cell",
+    "version": "1.21.4",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/once_cell-1.21.4/LICENSE-APACHE",
+      "third-party/rust/once_cell-1.21.4/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "build",
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "percent-encoding",
+    "version": "2.3.2",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/percent-encoding-2.3.2/LICENSE-APACHE",
+      "third-party/rust/percent-encoding-2.3.2/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "phf",
+    "version": "0.12.1",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/phf-0.12.1/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "phf_shared",
+    "version": "0.12.1",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/phf_shared-0.12.1/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "pin-project-lite",
+    "version": "0.2.17",
+    "license_expression": "Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/pin-project-lite-0.2.17/LICENSE-APACHE",
+      "third-party/rust/pin-project-lite-0.2.17/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "pkg-config",
+    "version": "0.3.34",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/pkg-config-0.3.34/LICENSE-APACHE",
+      "third-party/rust/pkg-config-0.3.34/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "potential_utf",
+    "version": "0.1.6",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/potential_utf-0.1.6/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "proc-macro2",
+    "version": "1.0.107",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/proc-macro2-1.0.107/LICENSE-APACHE",
+      "third-party/rust/proc-macro2-1.0.107/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "quinn",
+    "version": "0.11.12",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/quinn-0.11.12/LICENSE-APACHE",
+      "third-party/rust/quinn-0.11.12/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "quinn-proto",
+    "version": "0.11.19",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/quinn-proto-0.11.19/LICENSE-APACHE",
+      "third-party/rust/quinn-proto-0.11.19/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "quinn-udp",
+    "version": "0.5.16",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/quinn-udp-0.5.16/LICENSE-APACHE",
+      "third-party/rust/quinn-udp-0.5.16/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "quote",
+    "version": "1.0.47",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/quote-1.0.47/LICENSE-APACHE",
+      "third-party/rust/quote-1.0.47/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "rand",
+    "version": "0.10.3",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/rand-0.10.3/COPYRIGHT",
+      "third-party/rust/rand-0.10.3/LICENSE-APACHE",
+      "third-party/rust/rand-0.10.3/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "rand_core",
+    "version": "0.10.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/rand_core-0.10.1/COPYRIGHT",
+      "third-party/rust/rand_core-0.10.1/LICENSE-APACHE",
+      "third-party/rust/rand_core-0.10.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "build",
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "rand_pcg",
+    "version": "0.10.2",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/rand_pcg-0.10.2/COPYRIGHT",
+      "third-party/rust/rand_pcg-0.10.2/LICENSE-APACHE",
+      "third-party/rust/rand_pcg-0.10.2/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "renamore",
+    "version": "0.3.2",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/renamore-0.3.2/LICENSE-APACHE",
+      "third-party/rust/renamore-0.3.2/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "reqwest",
+    "version": "0.12.28",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/reqwest-0.12.28/LICENSE-APACHE",
+      "third-party/rust/reqwest-0.12.28/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "ring",
+    "version": "0.17.14",
+    "license_expression": "Apache-2.0 AND ISC",
+    "notices": [
+      "third-party/rust/ring-0.17.14/LICENSE",
+      "third-party/rust/ring-0.17.14/LICENSE-BoringSSL",
+      "third-party/rust/ring-0.17.14/LICENSE-other-bits",
+      "third-party/rust/ring-0.17.14/src/polyfill/once_cell/LICENSE-APACHE",
+      "third-party/rust/ring-0.17.14/src/polyfill/once_cell/LICENSE-MIT",
+      "third-party/rust/ring-0.17.14/third_party/fiat/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Apache-2.0 AND ISC",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "rusqlite",
+    "version": "0.32.1",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/rusqlite-0.32.1/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "rustc-hash",
+    "version": "2.1.3",
+    "license_expression": "Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/rustc-hash-2.1.3/LICENSE-APACHE",
+      "third-party/rust/rustc-hash-2.1.3/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "rustix",
+    "version": "1.1.5",
+    "license_expression": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/rustix-1.1.5/COPYRIGHT",
+      "third-party/rust/rustix-1.1.5/LICENSE-APACHE",
+      "third-party/rust/rustix-1.1.5/LICENSE-Apache-2.0_WITH_LLVM-exception",
+      "third-party/rust/rustix-1.1.5/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build",
+      "test"
+    ]
+  },
+  {
+    "name": "rustls",
+    "version": "0.23.46",
+    "license_expression": "Apache-2.0 OR ISC OR MIT",
+    "notices": [
+      "third-party/rust/rustls-0.23.46/LICENSE-APACHE",
+      "third-party/rust/rustls-0.23.46/LICENSE-ISC",
+      "third-party/rust/rustls-0.23.46/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "rustls-pki-types",
+    "version": "1.15.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/rustls-pki-types-1.15.1/LICENSE-APACHE",
+      "third-party/rust/rustls-pki-types-1.15.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "rustls-webpki",
+    "version": "0.103.16",
+    "license_expression": "ISC",
+    "notices": [
+      "third-party/rust/rustls-webpki-0.103.16/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "ISC",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "ryu",
+    "version": "1.0.23",
+    "license_expression": "Apache-2.0 OR BSL-1.0",
+    "notices": [
+      "third-party/rust/ryu-1.0.23/LICENSE-APACHE",
+      "third-party/rust/ryu-1.0.23/LICENSE-BOOST"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Apache-2.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "serde",
+    "version": "1.0.229",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/serde-1.0.229/LICENSE-APACHE",
+      "third-party/rust/serde-1.0.229/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "serde_core",
+    "version": "1.0.229",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/serde_core-1.0.229/LICENSE-APACHE",
+      "third-party/rust/serde_core-1.0.229/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "serde_derive",
+    "version": "1.0.229",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/serde_derive-1.0.229/LICENSE-APACHE",
+      "third-party/rust/serde_derive-1.0.229/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "serde_json",
+    "version": "1.0.154",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/serde_json-1.0.154/LICENSE-APACHE",
+      "third-party/rust/serde_json-1.0.154/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "serde_path_to_error",
+    "version": "0.1.20",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/serde_path_to_error-0.1.20/LICENSE-APACHE",
+      "third-party/rust/serde_path_to_error-0.1.20/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "test"
+    ]
+  },
+  {
+    "name": "serde_urlencoded",
+    "version": "0.7.1",
+    "license_expression": "MIT/Apache-2.0",
+    "notices": [
+      "third-party/rust/serde_urlencoded-0.7.1/LICENSE-APACHE",
+      "third-party/rust/serde_urlencoded-0.7.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "sha2",
+    "version": "0.10.9",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/sha2-0.10.9/LICENSE-APACHE",
+      "third-party/rust/sha2-0.10.9/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "shlex",
+    "version": "2.0.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/shlex-2.0.1/LICENSE-APACHE",
+      "third-party/rust/shlex-2.0.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "siphasher",
+    "version": "1.0.4",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/siphasher-1.0.4/COPYING",
+      "third-party/rust/siphasher-1.0.4/LICENSE-APACHE",
+      "third-party/rust/siphasher-1.0.4/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "slab",
+    "version": "0.4.12",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/slab-0.4.12/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "smallvec",
+    "version": "1.16.3",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/smallvec-1.16.3/LICENSE-APACHE",
+      "third-party/rust/smallvec-1.16.3/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "socket2",
+    "version": "0.6.5",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/socket2-0.6.5/LICENSE-APACHE",
+      "third-party/rust/socket2-0.6.5/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "stable_deref_trait",
+    "version": "1.2.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/stable_deref_trait-1.2.1/LICENSE-APACHE",
+      "third-party/rust/stable_deref_trait-1.2.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "subtle",
+    "version": "2.6.1",
+    "license_expression": "BSD-3-Clause",
+    "notices": [
+      "third-party/rust/subtle-2.6.1/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "BSD-3-Clause",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "syn",
+    "version": "3.0.9",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/syn-3.0.9/LICENSE-APACHE",
+      "third-party/rust/syn-3.0.9/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "sync_wrapper",
+    "version": "1.0.2",
+    "license_expression": "Apache-2.0",
+    "notices": [
+      "third-party/rust/sync_wrapper-1.0.2/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Apache-2.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "synstructure",
+    "version": "0.14.0",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/synstructure-0.14.0/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "tempfile",
+    "version": "3.27.0",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/tempfile-3.27.0/LICENSE-APACHE",
+      "third-party/rust/tempfile-3.27.0/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build",
+      "test"
+    ]
+  },
+  {
+    "name": "thiserror",
+    "version": "2.0.21",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/thiserror-2.0.21/LICENSE-APACHE",
+      "third-party/rust/thiserror-2.0.21/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "thiserror-impl",
+    "version": "2.0.21",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/thiserror-impl-2.0.21/LICENSE-APACHE",
+      "third-party/rust/thiserror-impl-2.0.21/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "tinystr",
+    "version": "0.8.5",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/tinystr-0.8.5/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "tinyvec",
+    "version": "1.13.3",
+    "license_expression": "Zlib OR Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/tinyvec-1.13.3/LICENSE-APACHE.md",
+      "third-party/rust/tinyvec-1.13.3/LICENSE-MIT.md",
+      "third-party/rust/tinyvec-1.13.3/LICENSE-ZLIB.md"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "tokio",
+    "version": "1.54.1",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/tokio-1.54.1/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "tokio-macros",
+    "version": "2.7.2",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/tokio-macros-2.7.2/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "tokio-rustls",
+    "version": "0.26.6",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/tokio-rustls-0.26.6/LICENSE-APACHE",
+      "third-party/rust/tokio-rustls-0.26.6/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "tokio-util",
+    "version": "0.7.20",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/tokio-util-0.7.20/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "tower",
+    "version": "0.5.3",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/tower-0.5.3/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "tower-http",
+    "version": "0.6.11",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/tower-http-0.6.11/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "tower-layer",
+    "version": "0.3.3",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/tower-layer-0.3.3/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "tower-service",
+    "version": "0.3.3",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/tower-service-0.3.3/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "tracing",
+    "version": "0.1.44",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/tracing-0.1.44/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "tracing-core",
+    "version": "0.1.36",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/tracing-core-0.1.36/LICENSE",
+      "third-party/rust/tracing-core-0.1.36/src/spin/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "try-lock",
+    "version": "0.2.5",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/try-lock-0.2.5/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "typenum",
+    "version": "1.20.1",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/typenum-1.20.1/LICENSE",
+      "third-party/rust/typenum-1.20.1/LICENSE-APACHE",
+      "third-party/rust/typenum-1.20.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "unicode-ident",
+    "version": "1.0.27",
+    "license_expression": "(MIT OR Apache-2.0) AND Unicode-3.0",
+    "notices": [
+      "third-party/rust/unicode-ident-1.0.27/LICENSE-APACHE",
+      "third-party/rust/unicode-ident-1.0.27/LICENSE-MIT",
+      "third-party/rust/unicode-ident-1.0.27/LICENSE-UNICODE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT AND Unicode-3.0",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "untrusted",
+    "version": "0.9.0",
+    "license_expression": "ISC",
+    "notices": [
+      "third-party/rust/untrusted-0.9.0/LICENSE.txt"
+    ],
+    "source": "crates.io",
+    "selected_expression": "ISC",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "url",
+    "version": "2.5.8",
+    "license_expression": "MIT OR Apache-2.0",
+    "notices": [
+      "third-party/rust/url-2.5.8/LICENSE-APACHE",
+      "third-party/rust/url-2.5.8/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "utf8_iter",
+    "version": "1.0.4",
+    "license_expression": "Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/utf8_iter-1.0.4/COPYRIGHT",
+      "third-party/rust/utf8_iter-1.0.4/LICENSE-APACHE",
+      "third-party/rust/utf8_iter-1.0.4/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "uuid",
+    "version": "1.28.0",
+    "license_expression": "Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/uuid-1.28.0/LICENSE-APACHE",
+      "third-party/rust/uuid-1.28.0/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "vcpkg",
+    "version": "0.2.15",
+    "license_expression": "MIT/Apache-2.0",
+    "notices": [
+      "third-party/rust/vcpkg-0.2.15/LICENSE-APACHE",
+      "third-party/rust/vcpkg-0.2.15/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "version_check",
+    "version": "0.9.5",
+    "license_expression": "MIT/Apache-2.0",
+    "notices": [
+      "third-party/rust/version_check-0.9.5/LICENSE-APACHE",
+      "third-party/rust/version_check-0.9.5/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "want",
+    "version": "0.3.2",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/want-0.3.2/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "webpki-roots",
+    "version": "1.0.10",
+    "license_expression": "CDLA-Permissive-2.0",
+    "notices": [
+      "third-party/rust/webpki-roots-1.0.10/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "CDLA-Permissive-2.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "writeable",
+    "version": "0.6.4",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/writeable-0.6.4/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "yoke",
+    "version": "0.8.4",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/yoke-0.8.4/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "yoke-derive",
+    "version": "0.8.4",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/yoke-derive-0.8.4/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "zerocopy",
+    "version": "0.8.63",
+    "license_expression": "BSD-2-Clause OR Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/zerocopy-0.8.63/LICENSE-APACHE",
+      "third-party/rust/zerocopy-0.8.63/LICENSE-BSD",
+      "third-party/rust/zerocopy-0.8.63/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "zerofrom",
+    "version": "0.1.8",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/zerofrom-0.1.8/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "zerofrom-derive",
+    "version": "0.1.8",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/zerofrom-derive-0.1.8/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "zeroize",
+    "version": "1.9.1",
+    "license_expression": "Apache-2.0 OR MIT",
+    "notices": [
+      "third-party/rust/zeroize-1.9.1/LICENSE-APACHE",
+      "third-party/rust/zeroize-1.9.1/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "zerotrie",
+    "version": "0.2.5",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/zerotrie-0.2.5/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "zerovec",
+    "version": "0.11.9",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/zerovec-0.11.9/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  },
+  {
+    "name": "zerovec-derive",
+    "version": "0.11.7",
+    "license_expression": "Unicode-3.0",
+    "notices": [
+      "third-party/rust/zerovec-derive-0.11.7/LICENSE"
+    ],
+    "source": "crates.io",
+    "selected_expression": "Unicode-3.0",
+    "distribution_role": "Build/proc-macro or test-only dependency; not independently shipped",
+    "graph_roles": [
+      "build"
+    ]
+  },
+  {
+    "name": "zmij",
+    "version": "1.0.23",
+    "license_expression": "MIT",
+    "notices": [
+      "third-party/rust/zmij-1.0.23/LICENSE-MIT"
+    ],
+    "source": "crates.io",
+    "selected_expression": "MIT",
+    "distribution_role": "Potential native runtime/helper dependency",
+    "graph_roles": [
+      "runtime",
+      "test"
+    ]
+  }
+]

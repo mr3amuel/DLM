@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>DLM</title><link rel="stylesheet" href="options.css"></head>
+<body><main><h1>DLM</h1><p data-i18n="privacy"></p><h2 data-i18n="setup"></h2><ol><li data-i18n="installStep"></li><li data-i18n="enableStep"></li><li data-i18n="pairStep"></li></ol>
+<p><span data-i18n="extensionId"></span> <code id="extension-id" dir="ltr"></code></p>
+<form id="pairing-form"><label for="pairing-code" data-i18n="pairingCode"></label><input id="pairing-code" type="password" dir="ltr" maxlength="64" autocomplete="off" spellcheck="false" required><label><input id="consent" type="checkbox" required><span data-i18n="consent"></span></label><div><button type="submit" data-i18n="save"></button><button id="test" type="button" data-i18n="testConnection"></button><button id="forget" type="button" data-i18n="forget"></button></div></form>
+<p id="status" role="status" aria-live="polite"></p><p data-i18n="troubleshooting"></p><p><a href="https://developer.chrome.com/docs/extensions/develop/concepts/native-messaging" target="_blank" rel="noreferrer" data-i18n="nativeDocs"></a></p>
+</main><script src="protocol.js"></script><script src="options.js"></script></body></html>
