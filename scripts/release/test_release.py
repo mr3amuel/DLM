@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Focused offline validation; no application, DMG, network or Git mutations."""
 import hashlib
+import io
 import json
 import plistlib
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -88,6 +90,163 @@ class ReleaseChecks(unittest.TestCase):
             (root / 'private.log').unlink()
             (root / f'DLM-{version}-macOS-arm64.dmg').write_bytes(b'changed')
             with self.assertRaises(ValueError): verify_artifacts.verify(root)
+
+
+class InspectionChecks(unittest.TestCase):
+    def environment(self, root):
+        return {'GITHUB_ACTIONS': 'true', 'RUNNER_ENVIRONMENT': 'github-hosted',
+                'GITHUB_EVENT_NAME': 'workflow_dispatch', 'RUNNER_TEMP': str(root)}
+
+    def test_inspection_context_is_explicit_and_outside_checkout(self):
+        with tempfile.TemporaryDirectory() as directory:
+            env = self.environment(Path(directory))
+            for key, bad in [('GITHUB_ACTIONS', 'false'), ('RUNNER_ENVIRONMENT', 'self-hosted'),
+                             ('GITHUB_EVENT_NAME', 'push'), ('RUNNER_TEMP', str(package.ROOT)),
+                             ('RUNNER_TEMP', 'relative')]:
+                with self.subTest(key=key), patch.dict(package.os.environ, {**env, key: bad}, clear=True):
+                    with self.assertRaises(ValueError): package._inspection_root()
+
+    def test_normal_package_still_requires_preflight_even_on_inspection_runner(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.dict(package.os.environ, self.environment(Path(directory)), clear=True), \
+                 patch.object(package, 'preflight', side_effect=ValueError('blocked')) as gate, \
+                 patch.object(package, '_create_verified_dmg') as create:
+                with self.assertRaises(ValueError): package.package('arm64')
+                gate.assert_called_once_with()
+                create.assert_not_called()
+
+    def test_publication_outputs_remain_exclusive_to_gated_entry(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / 'output'
+            name = 'DLM-0.1.0-macOS-arm64.dmg'
+            with patch.dict(package.os.environ, {'GITHUB_OUTPUT': str(output)}, clear=True), \
+                 patch.object(package, 'preflight', return_value=('0.1.0', '1')) as gate, \
+                 patch.object(package, '_create_verified_dmg', return_value=(Path(name), Path(name + '.sha256'))) as create:
+                package.package('arm64')
+                gate.assert_called_once_with()
+                create.assert_called_once_with('arm64', package.ROOT / 'dist', '0.1.0')
+            self.assertEqual(output.read_text(), f'dmg=dist/{name}\nchecksum=dist/{name}.sha256\n')
+
+    def exercise(self, failure=None):
+        """Mock OS tools only: no build, app, disk image or real mount is executed."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            output = root / 'github-output'
+            output.write_text('unchanged\n')
+            env = {**self.environment(root), 'GITHUB_OUTPUT': str(output)}
+            commands = []
+            workspace = []
+            def fake(*args, **kwargs):
+                commands.append(args)
+                if args[0] == 'uname':
+                    return b'x86_64\n' if failure == 'architecture' else b'arm64\n'
+                if args[0] == 'swift' and failure == 'background':
+                    raise subprocess.CalledProcessError(1, args)
+                if args[0] == 'dmgbuild':
+                    target = Path(args[-1]);workspace.append(target.parent)
+                    target.write_bytes(b'synthetic fixture, not a disk image')
+                    if failure == 'dmgbuild': raise subprocess.CalledProcessError(1, args)
+                if args[:2] == ('hdiutil', 'verify') and failure == 'image_verify':
+                    raise subprocess.CalledProcessError(1, args)
+                if args[:2] == ('hdiutil', 'attach'):
+                    mount = Path(args[args.index('-mountpoint') + 1])
+                    if failure == 'attach': raise subprocess.CalledProcessError(1, args)
+                    (mount / 'Applications').symlink_to('/Applications')
+                    (mount / '.DS_Store').write_bytes(b'fixture')
+                    if failure == 'contents': (mount / 'unexpected.log').write_text('fixture')
+                return b''
+            def verify(app, architecture):
+                if failure == 'source_bundle' or (failure == 'mounted_bundle' and 'mounted' in app.parts):
+                    raise ValueError('fixture bundle rejection')
+            real_checksum = package.verify_checksum
+            def check_checksum(*args):
+                if failure == 'checksum': raise ValueError('fixture checksum rejection')
+                return real_checksum(*args)
+            with patch.dict(package.os.environ, env, clear=True), \
+                 patch.object(package, 'run', side_effect=fake), \
+                 patch.object(package, 'verify_bundle', side_effect=verify) as bundle, \
+                 patch.object(package, 'preflight', side_effect=AssertionError('Inspection called publication gate')), \
+                 patch.object(package, 'verify_checksum', side_effect=check_checksum) as checksum:
+                if failure:
+                    with self.assertRaises((ValueError, subprocess.SubprocessError)):
+                        package.inspect_runner_local('arm64')
+                else:
+                    package.inspect_runner_local('arm64')
+                    self.assertEqual(bundle.call_count, 2)
+                    checksum.assert_called_once()
+                    self.assertTrue(any(c[:2] == ('hdiutil', 'verify') for c in commands))
+                if failure in ('attach', 'contents', 'mounted_bundle') or failure is None:
+                    self.assertTrue(any(c[:2] == ('hdiutil', 'detach') for c in commands))
+                self.assertEqual(output.read_text(), 'unchanged\n')
+                self.assertFalse(list(root.glob('dlm-dmg-inspection-*')))
+                self.assertTrue(all(not p.exists() for p in workspace))
+
+    def test_inspection_preserves_checks_and_never_emits_upload_outputs(self):
+        self.exercise()
+
+    def test_inspection_cleans_files_on_failure(self):
+        for failure in ['architecture', 'source_bundle', 'background', 'dmgbuild',
+                        'image_verify', 'attach', 'contents', 'mounted_bundle', 'checksum']:
+            with self.subTest(failure=failure): self.exercise(failure)
+
+    def test_detach_retries_then_retains_a_busy_mount(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / package._INSPECTION_MARKER).write_text(package._INSPECTION_OWNER)
+            mount = root / 'images/.packaging-work/mounted'
+            mount.mkdir(parents=True)
+            error = subprocess.CalledProcessError(1, ['hdiutil'])
+            with patch.object(Path, 'is_mount', return_value=True), \
+                 patch.object(package, 'run', side_effect=[error, b'']) as run:
+                package._detach(mount)
+                self.assertEqual(run.call_args_list[1].args, ('hdiutil', 'detach', '-force', str(mount)))
+            with patch.object(Path, 'is_mount', return_value=True), \
+                 patch.object(package, 'run', side_effect=error), \
+                 patch.object(package.shutil, 'rmtree') as remove:
+                with self.assertRaises(RuntimeError): package._remove_inspection(root)
+                remove.assert_not_called()
+                self.assertTrue(root.exists())
+
+    def test_cleanup_only_removes_owned_prefix_and_rejects_symlinks(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory);owned = root / 'dlm-dmg-inspection-fixture';owned.mkdir()
+            (owned / package._INSPECTION_MARKER).write_text(package._INSPECTION_OWNER)
+            unrelated = root / 'keep';unrelated.mkdir()
+            with patch.dict(package.os.environ, self.environment(root), clear=True):
+                package.cleanup_inspections()
+                self.assertFalse(owned.exists());self.assertTrue(unrelated.exists())
+                owned.symlink_to(unrelated, target_is_directory=True)
+                with self.assertRaises(ValueError): package.cleanup_inspections()
+                self.assertTrue(unrelated.exists())
+
+    def test_cleanup_refuses_unmarked_prefix_directory(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory);unknown = root / 'dlm-dmg-inspection-not-owned';unknown.mkdir()
+            (unknown / 'keep').write_text('synthetic data')
+            with patch.dict(package.os.environ, self.environment(root), clear=True):
+                with self.assertRaises(ValueError): package.cleanup_inspections()
+            self.assertTrue((unknown / 'keep').exists())
+
+    def test_verbose_diagnostics_stay_in_inspection_sink(self):
+        sink = io.BytesIO()
+        error = subprocess.CalledProcessError(1, ['fixture'], output=b'synthetic stdout', stderr=b'synthetic stderr')
+        with patch.object(package, '_INSPECTION_LOG', sink), \
+             patch.object(package.subprocess, 'check_output', side_effect=error):
+            with self.assertRaises(subprocess.CalledProcessError): package.run('fixture')
+        self.assertEqual(sink.getvalue(), b'synthetic stdoutsynthetic stderr')
+        with patch.object(package, '_INSPECTION_LOG', None), \
+             patch.object(package.subprocess, 'check_output', return_value=b'ok') as command:
+            package.run('fixture')
+            self.assertEqual(command.call_args.kwargs['stderr'], subprocess.DEVNULL)
+
+    def test_checksum_verifies_exact_final_bytes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            dmg = Path(directory) / 'fixture.dmg';dmg.write_bytes(b'synthetic bytes')
+            sidecar = Path(directory) / 'fixture.dmg.sha256'
+            sidecar.write_text(f'{hashlib.sha256(dmg.read_bytes()).hexdigest()}  {dmg.name}\n')
+            package.verify_checksum(dmg, sidecar)
+            dmg.write_bytes(b'changed')
+            with self.assertRaises(ValueError): package.verify_checksum(dmg, sidecar)
 
 
 if __name__ == '__main__':

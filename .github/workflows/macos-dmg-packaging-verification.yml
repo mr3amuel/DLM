@@ -1,0 +1,144 @@
+name: macOS DMG Packaging Verification
+
+# Runner-local production DMG inspection only; no distribution approval is implied.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: macos-dmg-packaging-verification
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Production Release ${{ matrix.arch }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - arch: arm64
+            runner: macos-15
+            rust_target: aarch64-apple-darwin
+          - arch: x86_64
+            runner: macos-15-intel
+            rust_target: x86_64-apple-darwin
+    defaults:
+      run:
+        shell: bash
+    env:
+      DLM_NATIVE_CONFIGURATION: production
+      DLM_NATIVE_SANDBOX: '0'
+      DLM_NATIVE_ARCH: ${{ matrix.arch }}
+      RUST_TARGET: ${{ matrix.rust_target }}
+    steps:
+      - name: Check out source without persisted credentials
+        id: source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Install repository-pinned Rust toolchain
+        run: |
+          set -euo pipefail
+          if [[ "$(uname -m)" != "$DLM_NATIVE_ARCH" ]]; then
+            echo '::error::Runner architecture does not match the production verification matrix.'
+            exit 1
+          fi
+          if ! toolchain=$(python3 -c 'import tomllib; print(tomllib.load(open("rust-toolchain.toml", "rb"))["toolchain"]["channel"])' 2> "$RUNNER_TEMP/dlm-dmg-verification-config.log"); then
+            echo '::error::Cannot read the repository toolchain configuration.'
+            exit 1
+          fi
+          if [[ ! "$toolchain" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo '::error::Expected a version-pinned Rust toolchain.'
+            exit 1
+          fi
+          if ! rustup toolchain install "$toolchain" --profile minimal --component rustfmt --component clippy --target "$RUST_TARGET" > "$RUNNER_TEMP/dlm-dmg-verification-toolchain.log" 2>&1; then
+            echo '::error::Pinned Rust setup failed; detailed output stays runner-local.'
+            exit 1
+          fi
+          echo "RUSTUP_TOOLCHAIN=$toolchain" >> "$GITHUB_ENV"
+          echo 'Pinned Rust toolchain ready.'
+
+      - name: Prepare isolated packaging tools and focused checks
+        run: |
+          set -euo pipefail
+          export PYTHONPYCACHEPREFIX="$RUNNER_TEMP/dlm-dmg-verification-python-cache"
+          if ! (
+            python3 -m venv "$RUNNER_TEMP/dlm-dmg-verification-tools" &&
+            "$RUNNER_TEMP/dlm-dmg-verification-tools/bin/python" -m pip install --disable-pip-version-check -q -r scripts/release/requirements.txt &&
+            "$RUNNER_TEMP/dlm-dmg-verification-tools/bin/python" scripts/release/test_release.py
+          ) > "$RUNNER_TEMP/dlm-dmg-verification-tools.log" 2>&1; then
+            echo '::error::Packaging tool setup or focused checks failed; diagnostics stay runner-local.'
+            exit 1
+          fi
+
+      - name: Build production Release app without launching it
+        run: |
+          set -euo pipefail
+          # Keep target paths inside shell steps, not public environment summaries.
+          export CARGO_TARGET_DIR="$RUNNER_TEMP/dlm-dmg-verification-rust"
+          export DLM_NATIVE_HOST_TARGET_DIR="$RUNNER_TEMP/dlm-dmg-verification-host"
+          if ! (
+            installed_toolchain="$RUSTUP_TOOLCHAIN"
+            . scripts/env.sh
+            [[ "$RUSTUP_TOOLCHAIN" == "$installed_toolchain" ]] || exit 1
+            ./prototypes/swiftui/build.sh release
+          ) > "$RUNNER_TEMP/dlm-dmg-verification-build.log" 2>&1; then
+            echo '::error::Production Release build or toolchain consistency check failed; detailed output stays runner-local.'
+            exit 1
+          fi
+          echo 'Production Release app and helper built; build-script signature checks passed.'
+
+      - name: Validate production bundle without invoking packaging
+        run: |
+          set -euo pipefail
+          export PYTHONPYCACHEPREFIX="$RUNNER_TEMP/dlm-dmg-verification-python-cache"
+          python3 - <<'PY' > "$RUNNER_TEMP/dlm-dmg-verification-validation.log" 2>&1 || { echo '::error::Production bundle validation failed; detailed output stays runner-local.'; exit 1; }
+          import importlib.util
+          import os
+          import plistlib
+          from pathlib import Path
+
+          # Import as a library: the publication-gated CLI is never invoked.
+          spec = importlib.util.spec_from_file_location('dlm_bundle_checks', 'scripts/release/package.py')
+          checks = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(checks)
+          if checks.metadata() != ('0.1.0', '1'):
+              raise ValueError('Expected production version 0.1.0, build 1')
+          app = Path('prototypes/swiftui/build/DLM.app')
+          info = plistlib.loads((app / 'Contents/Info.plist').read_bytes())
+          if info.get('CFBundleDisplayName') != 'DLM':
+              raise ValueError('Unexpected production display name')
+          checks.verify_bundle(app, os.environ['DLM_NATIVE_ARCH'])
+          PY
+          echo 'Production identity, version/build, architectures, resources, dependency notices and strict signatures verified.'
+
+      - name: Create, inspect and discard runner-local DMG
+        run: |
+          set -euo pipefail
+          export PATH="$RUNNER_TEMP/dlm-dmg-verification-tools/bin:$PATH"
+          export PYTHONPYCACHEPREFIX="$RUNNER_TEMP/dlm-dmg-verification-python-cache"
+          if ! python scripts/release/package.py inspect-runner-local "$DLM_NATIVE_ARCH" > "$RUNNER_TEMP/dlm-dmg-verification-packaging.log" 2>&1; then
+            echo '::error::Runner-local DMG inspection failed; diagnostics stay runner-local. No binaries are uploaded.'
+            exit 1
+          fi
+          echo 'DMG contents, signatures, architecture and checksum verified; temporary image discarded.'
+
+      - name: Clean up remaining inspection mounts and images
+        if: ${{ always() && steps.source.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          export PYTHONPYCACHEPREFIX="$RUNNER_TEMP/dlm-dmg-verification-python-cache"
+          if ! python3 scripts/release/package.py cleanup-inspections > "$RUNNER_TEMP/dlm-dmg-verification-cleanup.log" 2>&1; then
+            echo '::error::Inspection cleanup could not be confirmed; remaining files are left for ephemeral runner teardown.'
+            exit 1
+          fi
+          echo 'Runner-local inspection cleanup completed.'
+
+      # No upload/cache actions, publication outputs, release credentials, app launch,
+      # installation, browser registration, migration or public distribution.

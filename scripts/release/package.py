@@ -5,6 +5,7 @@ import json
 import os
 import plistlib
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -14,8 +15,23 @@ ROOT = Path(__file__).resolve().parents[2]
 NATIVE = ROOT / 'prototypes/swiftui'
 
 
+# Only inspection enables this private runner-local diagnostic sink.
+_INSPECTION_LOG = None
+
+
 def run(*args, **kwargs):
-    return subprocess.check_output(args, stderr=subprocess.DEVNULL, **kwargs)
+    if _INSPECTION_LOG is None:
+        return subprocess.check_output(args, stderr=subprocess.DEVNULL, **kwargs)
+    try:
+        output = subprocess.check_output(args, stderr=subprocess.PIPE, **kwargs)
+    except subprocess.CalledProcessError as error:
+        _INSPECTION_LOG.write(error.output or b'')
+        _INSPECTION_LOG.write(error.stderr or b'')
+        _INSPECTION_LOG.flush()
+        raise
+    _INSPECTION_LOG.write(output)
+    _INSPECTION_LOG.flush()
+    return output
 
 
 def metadata(ref=''):
@@ -75,56 +91,159 @@ def verify_bundle(app, architecture):
     run('codesign', '--verify', '--deep', '--strict', str(app))
 
 
-def package(architecture):
-    version, _ = preflight()
+def _detach(mount):
+    for force in (False, True):
+        try:
+            args = ['hdiutil', 'detach'] + (['-force'] if force else []) + [str(mount)]
+            run(*args)
+            return
+        except subprocess.SubprocessError:
+            if not mount.is_mount():
+                return  # Already detached, including a failed attachment.
+    raise RuntimeError('Cannot detach inspection mount; workspace retained')
+
+
+def verify_checksum(dmg, sidecar):
+    expected = f'{hashlib.sha256(dmg.read_bytes()).hexdigest()}  {dmg.name}\n'
+    if sidecar.read_text() != expected:
+        raise ValueError('DMG checksum verification failed')
+
+
+def _create_verified_dmg(architecture, dist, version):
+    """Common mechanics only. Callers separately authorize publication or inspection."""
     if architecture not in ('arm64', 'x86_64') or run('uname', '-m').decode().strip() != architecture:
         raise ValueError('Use a matching native macOS runner')
     app = NATIVE / 'build/DLM.app'
     verify_bundle(app, architecture)
-    dist = ROOT / 'dist'
     dist.mkdir(exist_ok=True)
-    if any(dist.iterdir()):
-        raise ValueError('Release staging must start empty')
-    name = f'DLM-{version}-macOS-{architecture}.dmg'
-    dmg = dist / name
-    if dmg.exists():
-        raise ValueError('Refusing to overwrite an existing release artifact')
-    with tempfile.TemporaryDirectory(prefix='dlm-package-') as directory:
-        background = Path(directory) / 'background.png'
+    if dist.is_symlink() or any(dist.iterdir()):
+        raise ValueError('Packaging staging must be an empty real directory')
+    dmg = dist / f'DLM-{version}-macOS-{architecture}.dmg'
+    sidecar = dist / (dmg.name + '.sha256')
+    work = dist / '.packaging-work'
+    work.mkdir()
+    mount = work / 'mounted'
+    mount.mkdir()
+    attach_attempted = False
+    try:
+        background = work / 'background.png'
         run('swift', str(ROOT / 'scripts/release/background.swift'),
             str(app / 'Contents/Resources/DLMBrand.png'), str(background))
         env = dict(os.environ, DLM_PACKAGE_APP=str(app), DLM_PACKAGE_BACKGROUND=str(background))
         run('dmgbuild', '-s', str(ROOT / 'scripts/release/dmg_settings.py'), f'DLM {version}', str(dmg), env=env)
         run('hdiutil', 'verify', str(dmg))
-        mount = Path(directory) / 'mounted'
-        mount.mkdir()
+        attach_attempted = True
         run('hdiutil', 'attach', '-readonly', '-nobrowse', '-mountpoint', str(mount), str(dmg))
-        try:
-            if not (mount / 'Applications').is_symlink() or os.readlink(mount / 'Applications') != '/Applications':
-                raise ValueError('DMG Applications shortcut missing')
-            allowed = {'DLM.app', 'Applications', '.DS_Store', '.background', '.VolumeIcon.icns', '.fseventsd', '.Trashes'}
-            if not {p.name for p in mount.iterdir()} <= allowed:
-                raise ValueError('Unexpected DMG content')
-            if not (mount / '.DS_Store').is_file():
-                raise ValueError('DMG Finder presentation missing')
-            verify_bundle(mount / 'DLM.app', architecture)
-        finally:
-            run('hdiutil', 'detach', str(mount))
+        if not (mount / 'Applications').is_symlink() or os.readlink(mount / 'Applications') != '/Applications':
+            raise ValueError('DMG Applications shortcut missing')
+        allowed = {'DLM.app', 'Applications', '.DS_Store', '.background', '.VolumeIcon.icns', '.fseventsd', '.Trashes'}
+        if not {p.name for p in mount.iterdir()} <= allowed:
+            raise ValueError('Unexpected DMG content')
+        if not (mount / '.DS_Store').is_file():
+            raise ValueError('DMG Finder presentation missing')
+        verify_bundle(mount / 'DLM.app', architecture)
+    finally:
+        if attach_attempted:
+            _detach(mount)
+        # Never walk/remove a filesystem that is still mounted after cleanup failure.
+        if mount.is_mount():
+            raise RuntimeError('Packaging mount remains; workspace retained')
+        shutil.rmtree(work)
     digest = hashlib.sha256(dmg.read_bytes()).hexdigest()
-    (dist / (name + '.sha256')).write_text(f'{digest}  {name}\n')
+    sidecar.write_text(f'{digest}  {dmg.name}\n')
+    verify_checksum(dmg, sidecar)
+    return dmg, sidecar
+
+
+def package(architecture):
+    version, _ = preflight()  # Publication remains fail-closed before any packaging.
+    dmg, sidecar = _create_verified_dmg(architecture, ROOT / 'dist', version)
     if os.environ.get('GITHUB_OUTPUT'):
         with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
-            output.write(f'dmg=dist/{name}\nchecksum=dist/{name}.sha256\n')
-    print(name)  # Only basename: never disclose local build paths or logs.
+            output.write(f'dmg=dist/{dmg.name}\nchecksum=dist/{sidecar.name}\n')
+    print(dmg.name)
+
+
+def _inspection_root():
+    if (os.environ.get('GITHUB_ACTIONS') != 'true'
+            or os.environ.get('RUNNER_ENVIRONMENT') != 'github-hosted'
+            or os.environ.get('GITHUB_EVENT_NAME') != 'workflow_dispatch'):
+        raise ValueError('Inspection requires a manually dispatched GitHub-hosted run')
+    raw = os.environ.get('RUNNER_TEMP', '')
+    root = Path(raw)
+    if not raw or not root.is_absolute() or not root.is_dir() or root.is_symlink():
+        raise ValueError('Invalid runner temporary directory')
+    root = root.resolve()
+    if root == ROOT.resolve() or root.is_relative_to(ROOT.resolve()):
+        raise ValueError('Inspection output must be outside the checkout')
+    return root
+
+
+_INSPECTION_MARKER = '.dlm-inspection-owner'
+_INSPECTION_OWNER = 'DLM runner-local inspection v1\n'
+
+
+def _remove_inspection(directory):
+    marker = directory / _INSPECTION_MARKER
+    if directory.is_symlink() or marker.is_symlink() or not marker.is_file() or marker.read_text() != _INSPECTION_OWNER:
+        raise ValueError('Unrecognized inspection workspace; refusing cleanup')
+    images = directory / 'images'
+    mount = images / '.packaging-work/mounted'
+    if any(p.is_symlink() for p in (images, images / '.packaging-work', mount)):
+        raise ValueError('Unexpected workspace symlink; refusing cleanup')
+    if mount.is_mount():
+        _detach(mount)
+    if mount.is_mount():
+        raise RuntimeError('Mount remains; inspection files retained for runner teardown')
+    shutil.rmtree(directory)
+
+
+def inspect_runner_local(architecture):
+    root = _inspection_root()
+    version, _ = metadata()
+    directory = Path(tempfile.mkdtemp(prefix='dlm-dmg-inspection-', dir=root))
+    (directory / _INSPECTION_MARKER).write_text(_INSPECTION_OWNER)
+    images = directory / 'images'
+    images.mkdir()
+    # NamedTemporaryFile creates a private file; its name is never printed or uploaded.
+    global _INSPECTION_LOG
+    previous = _INSPECTION_LOG
+    try:
+        with tempfile.NamedTemporaryFile(prefix='dlm-dmg-diagnostic-', suffix='.log', dir=root, delete=False) as log:
+            _INSPECTION_LOG = log
+            try:
+                _create_verified_dmg(architecture, images, version)
+                # No GITHUB_OUTPUT, source dist directory or publication callback is used.
+            finally:
+                _remove_inspection(directory)
+    finally:
+        _INSPECTION_LOG = previous
+    print('Runner-local DMG checks passed; temporary image and checksum discarded.')
+
+
+def cleanup_inspections():
+    root = _inspection_root()
+    for directory in root.glob('dlm-dmg-inspection-*'):
+        if directory.is_symlink() or not directory.is_dir():
+            raise ValueError('Unexpected inspection workspace')
+        _remove_inspection(directory)
+    print('Runner-local inspection cleanup completed.')
 
 
 if __name__ == '__main__':
     try:
-        if sys.argv[1:] == ['preflight']:
+        args = sys.argv[1:]
+        if args == ['preflight']:
             preflight(os.environ.get('GITHUB_REF', '') if os.environ.get('GITHUB_REF_TYPE') == 'tag' else '')
             print('Release gate passed')
+        elif len(args) == 2 and args[0] == 'inspect-runner-local':
+            inspect_runner_local(args[1])
+        elif args == ['cleanup-inspections']:
+            cleanup_inspections()
+        elif len(args) == 1 and args[0] in ('arm64', 'x86_64'):
+            package(args[0])
         else:
-            package(sys.argv[1])
-    except (ValueError, OSError, subprocess.SubprocessError, IndexError):
-        print('Release preparation failed; check approval, configuration, resources and architecture. No diagnostic workspace is uploaded.', file=sys.stderr)
+            raise ValueError('Unsupported packaging command')
+    except (ValueError, OSError, subprocess.SubprocessError, IndexError, KeyError, TypeError, RuntimeError):
+        print('Packaging verification failed; check runner-local diagnostics and configuration. Nothing is uploaded by this command.', file=sys.stderr)
         raise SystemExit(1)
