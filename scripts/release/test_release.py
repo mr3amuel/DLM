@@ -140,8 +140,11 @@ class InspectionChecks(unittest.TestCase):
                 commands.append(args)
                 if args[0] == 'uname':
                     return b'x86_64\n' if failure == 'architecture' else b'arm64\n'
-                if args[0] == 'swift' and failure == 'background':
+                if args[:2] == ('xcrun', 'swiftc') and failure == 'background':
                     raise subprocess.CalledProcessError(1, args)
+                if Path(args[0]).name == 'render-background':
+                    if failure == 'background_runtime': raise subprocess.CalledProcessError(1, args)
+                    Path(args[-1]).write_bytes(b'synthetic PNG fixture')
                 if args[0] == 'dmgbuild':
                     target = Path(args[-1]);workspace.append(target.parent)
                     target.write_bytes(b'synthetic fixture, not a disk image')
@@ -153,6 +156,8 @@ class InspectionChecks(unittest.TestCase):
                     if failure == 'attach': raise subprocess.CalledProcessError(1, args)
                     (mount / 'Applications').symlink_to('/Applications')
                     (mount / '.DS_Store').write_bytes(b'fixture')
+                    if failure != 'missing_background':
+                        (mount / '.background.png').write_bytes(b'wrong' if failure == 'changed_background' else (mount.parent / 'background.png').read_bytes())
                     if failure == 'contents': (mount / 'unexpected.log').write_text('fixture')
                 return b''
             def verify(app, architecture):
@@ -177,6 +182,9 @@ class InspectionChecks(unittest.TestCase):
                     self.assertTrue(any(c[:2] == ('hdiutil', 'verify') for c in commands))
                 if failure in ('attach', 'contents', 'mounted_bundle') or failure is None:
                     self.assertTrue(any(c[:2] == ('hdiutil', 'detach') for c in commands))
+                if failure is None:
+                    self.assertTrue(any(c[:2] == ('xcrun', 'swiftc') for c in commands))
+                    self.assertFalse(any(c[0] == 'swift' for c in commands))
                 self.assertEqual(output.read_text(), 'unchanged\n')
                 self.assertFalse(list(root.glob('dlm-dmg-inspection-*')))
                 self.assertTrue(all(not p.exists() for p in workspace))
@@ -186,7 +194,7 @@ class InspectionChecks(unittest.TestCase):
 
     def test_inspection_cleans_files_on_failure(self):
         for failure in ['architecture', 'source_bundle', 'background', 'dmgbuild',
-                        'image_verify', 'attach', 'contents', 'mounted_bundle', 'checksum']:
+                        'background_runtime', 'image_verify', 'attach', 'contents', 'missing_background', 'changed_background', 'mounted_bundle', 'checksum']:
             with self.subTest(failure=failure): self.exercise(failure)
 
     def test_detach_retries_then_retains_a_busy_mount(self):
@@ -233,11 +241,24 @@ class InspectionChecks(unittest.TestCase):
         with patch.object(package, '_INSPECTION_LOG', sink), \
              patch.object(package.subprocess, 'check_output', side_effect=error):
             with self.assertRaises(subprocess.CalledProcessError): package.run('fixture')
-        self.assertEqual(sink.getvalue(), b'synthetic stdoutsynthetic stderr')
+        self.assertEqual(sink.getvalue(), b'COMMAND: fixture\nsynthetic stdoutsynthetic stderr')
         with patch.object(package, '_INSPECTION_LOG', None), \
              patch.object(package.subprocess, 'check_output', return_value=b'ok') as command:
             package.run('fixture')
             self.assertEqual(command.call_args.kwargs['stderr'], subprocess.DEVNULL)
+
+    def test_local_mode_is_distinct_and_disposable(self):
+        with patch.dict(package.os.environ, {}, clear=True), \
+             patch.object(package.sys, 'platform', 'darwin'), \
+             patch.object(package, '_inspect_temporary') as inspect, \
+             patch.object(package, '_inspection_root', side_effect=AssertionError('No GitHub spoofing')):
+            package.inspect_local('arm64')
+            inspect.assert_called_once_with('arm64', Path(tempfile.gettempdir()).resolve())
+            self.assertNotIn('GITHUB_ACTIONS', package.os.environ)
+        with patch.dict(package.os.environ, {'GITHUB_ACTIONS': 'true'}, clear=True):
+            with self.assertRaises(ValueError): package.inspect_local('arm64')
+        with patch.object(package.sys, 'platform', 'win32'):
+            with self.assertRaises(ValueError): package.inspect_local('arm64')
 
     def test_checksum_verifies_exact_final_bytes(self):
         with tempfile.TemporaryDirectory() as directory:

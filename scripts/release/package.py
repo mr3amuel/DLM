@@ -6,6 +6,8 @@ import os
 import plistlib
 import re
 import shutil
+import shlex
+import traceback
 import subprocess
 import sys
 import tempfile
@@ -22,6 +24,8 @@ _INSPECTION_LOG = None
 def run(*args, **kwargs):
     if _INSPECTION_LOG is None:
         return subprocess.check_output(args, stderr=subprocess.DEVNULL, **kwargs)
+    _INSPECTION_LOG.write(('COMMAND: ' + shlex.join(map(str, args)) + '\n').encode())
+    _INSPECTION_LOG.flush()
     try:
         output = subprocess.check_output(args, stderr=subprocess.PIPE, **kwargs)
     except subprocess.CalledProcessError as error:
@@ -127,8 +131,12 @@ def _create_verified_dmg(architecture, dist, version):
     attach_attempted = False
     try:
         background = work / 'background.png'
-        run('swift', str(ROOT / 'scripts/release/background.swift'),
-            str(app / 'Contents/Resources/DLMBrand.png'), str(background))
+        # Compile/link the CoreGraphics overlays; Swift's interpreter JIT may not
+        # resolve them on the runner's toolchain/runtime combination.
+        renderer = work / 'render-background'
+        run('xcrun', 'swiftc', '-target', f'{architecture}-apple-macos13.0',
+            str(ROOT / 'scripts/release/background.swift'), '-o', str(renderer))
+        run(str(renderer), str(app / 'Contents/Resources/DLMBrand.png'), str(background))
         env = dict(os.environ, DLM_PACKAGE_APP=str(app), DLM_PACKAGE_BACKGROUND=str(background))
         run('dmgbuild', '-s', str(ROOT / 'scripts/release/dmg_settings.py'), f'DLM {version}', str(dmg), env=env)
         run('hdiutil', 'verify', str(dmg))
@@ -136,9 +144,14 @@ def _create_verified_dmg(architecture, dist, version):
         run('hdiutil', 'attach', '-readonly', '-nobrowse', '-mountpoint', str(mount), str(dmg))
         if not (mount / 'Applications').is_symlink() or os.readlink(mount / 'Applications') != '/Applications':
             raise ValueError('DMG Applications shortcut missing')
-        allowed = {'DLM.app', 'Applications', '.DS_Store', '.background', '.VolumeIcon.icns', '.fseventsd', '.Trashes'}
-        if not {p.name for p in mount.iterdir()} <= allowed:
-            raise ValueError('Unexpected DMG content')
+        allowed = {'DLM.app', 'Applications', '.DS_Store', '.background.png', '.VolumeIcon.icns', '.fseventsd', '.Trashes'}
+        unexpected = {p.name for p in mount.iterdir()} - allowed
+        if unexpected:
+            raise ValueError(f'Unexpected DMG content: {sorted(unexpected)!r}')
+        mounted_background = mount / '.background.png'
+        if (mounted_background.is_symlink() or not mounted_background.is_file()
+                or mounted_background.read_bytes() != background.read_bytes()):
+            raise ValueError('DMG background missing or changed')
         if not (mount / '.DS_Store').is_file():
             raise ValueError('DMG Finder presentation missing')
         verify_bundle(mount / 'DLM.app', architecture)
@@ -152,6 +165,9 @@ def _create_verified_dmg(architecture, dist, version):
     digest = hashlib.sha256(dmg.read_bytes()).hexdigest()
     sidecar.write_text(f'{digest}  {dmg.name}\n')
     verify_checksum(dmg, sidecar)
+    if _INSPECTION_LOG is not None:
+        _INSPECTION_LOG.write(f'VERIFIED SHA-256: {digest}  {dmg.name}\n'.encode())
+        _INSPECTION_LOG.flush()
     return dmg, sidecar
 
 
@@ -198,8 +214,7 @@ def _remove_inspection(directory):
     shutil.rmtree(directory)
 
 
-def inspect_runner_local(architecture):
-    root = _inspection_root()
+def _inspect_temporary(architecture, root):
     version, _ = metadata()
     directory = Path(tempfile.mkdtemp(prefix='dlm-dmg-inspection-', dir=root))
     (directory / _INSPECTION_MARKER).write_text(_INSPECTION_OWNER)
@@ -212,13 +227,33 @@ def inspect_runner_local(architecture):
         with tempfile.NamedTemporaryFile(prefix='dlm-dmg-diagnostic-', suffix='.log', dir=root, delete=False) as log:
             _INSPECTION_LOG = log
             try:
-                _create_verified_dmg(architecture, images, version)
-                # No GITHUB_OUTPUT, source dist directory or publication callback is used.
-            finally:
-                _remove_inspection(directory)
+                try:
+                    _create_verified_dmg(architecture, images, version)
+                    # No GITHUB_OUTPUT, source dist directory or publication callback is used.
+                finally:
+                    _remove_inspection(directory)
+            except Exception:
+                log.write(traceback.format_exc().encode())
+                log.flush()
+                raise
     finally:
         _INSPECTION_LOG = previous
-    print('Runner-local DMG checks passed; temporary image and checksum discarded.')
+    print('DMG inspection passed; temporary image and checksum discarded.')
+
+
+
+def inspect_runner_local(architecture):
+    _inspect_temporary(architecture, _inspection_root())
+
+
+def inspect_local(architecture):
+    """Explicit local diagnostics, never a publication or retained-artifact mode."""
+    if sys.platform != 'darwin' or os.environ.get('GITHUB_ACTIONS') == 'true':
+        raise ValueError('Local inspection requires a local macOS process, not GitHub Actions')
+    root = Path(tempfile.gettempdir()).resolve()
+    if root == ROOT.resolve() or root.is_relative_to(ROOT.resolve()):
+        raise ValueError('Local inspection must use temporary storage outside checkout')
+    _inspect_temporary(architecture, root)
 
 
 def cleanup_inspections():
@@ -238,6 +273,8 @@ if __name__ == '__main__':
             print('Release gate passed')
         elif len(args) == 2 and args[0] == 'inspect-runner-local':
             inspect_runner_local(args[1])
+        elif len(args) == 2 and args[0] == 'inspect-local':
+            inspect_local(args[1])
         elif args == ['cleanup-inspections']:
             cleanup_inspections()
         elif len(args) == 1 and args[0] in ('arm64', 'x86_64'):

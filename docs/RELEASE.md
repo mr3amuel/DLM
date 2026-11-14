@@ -59,5 +59,28 @@ retries cleanup of marked workspaces. Cancellation, runner loss or an unrecovera
 busy mount can prevent cleanup; leftovers are then confined to the ephemeral runner
 and discarded at teardown. Logs also stay runner-local and are never uploaded.
 
-Real packaging, Finder presentation and both-architecture packaging success remain
-unverified until this workflow completes. Mocked tests do not create real disk images.
+GitHub-runner packaging, Finder visual acceptance and both-architecture success
+remain unverified until the workflow completes. Local arm64 real-image evidence is
+recorded below; mocked tests alone do not establish packaging success.
+
+## Explicit local packaging diagnostics
+
+For local macOS testing, `python scripts/release/package.py inspect-local arm64`
+uses the same disposable image creation and all validation checks as runner-local
+inspection. Install requirements in an isolated virtual environment and build the
+production Release app first. The local command rejects GitHub Actions and does
+not set or spoof any GitHub environment variables. It never calls publication
+preflight, writes GITHUB_OUTPUT, retains a distributable image, or changes approvals.
+Ordinary publication packaging still requires its unchanged preflight.
+
+Private temporary diagnostic logs now include command context, subprocess failures
+and Python validation tracebacks. Logs and checksums contain no distribution grant;
+never upload them without separate review. Successful images/checksums are removed.
+
+Real arm64 testing identified two failures: the Swift interpreter could not resolve
+CoreGraphics overlay symbols, and dmgbuild 1.6.7 stores the PNG as `.background.png`,
+not a `.background` directory. Packaging now compiles/links a temporary headless
+renderer for the selected architecture and validates the mounted PNG byte-for-byte
+against its generated source. Unexpected DMG entries remain rejected. Local arm64
+creation, integrity, mounting, bundle/signature/resource/notice, checksum and cleanup
+checks succeeded. Intel packaging still requires a real Intel runner test.
