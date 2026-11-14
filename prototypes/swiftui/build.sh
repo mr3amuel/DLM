@@ -75,7 +75,8 @@ host_target="${DLM_NATIVE_HOST_TARGET_DIR:-$project/build/chrome-rust}"
 CARGO_TARGET_DIR="$host_target" cargo build --locked --release --manifest-path "$repo/Cargo.toml" \
   -p download_bridge --target "$rust_target" --features "$features" --bin dlm-browser-host
 install -m 755 "$host_target/$rust_target/release/dlm-browser-host" "$helper"
-lipo -verify_arch "$architecture" "$helper" "$bundle/Contents/MacOS/DLMSwiftExperiment"
+lipo "$helper" -verify_arch "$architecture"
+lipo "$bundle/Contents/MacOS/DLMSwiftExperiment" -verify_arch "$architecture"
 codesign --force --sign - "$helper"
 if [ "${DLM_NATIVE_SANDBOX:-0}" = 1 ]; then
     plutil -insert DLMScopedFolders -bool true "$bundle/Contents/Info.plist"
