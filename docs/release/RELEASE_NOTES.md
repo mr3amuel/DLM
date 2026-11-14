@@ -1,5 +1,7 @@
 # DLM 0.1.0
 
+Free to download and use. Proprietary source is source-available, not open-source licensed.
+
 Native SwiftUI/AppKit download manager for macOS with a Rust engine: resumable
 transfers, queue priorities, scheduling, categories, browser link review and Menu Bar
 controls. Browser integration is optional and requires explicit setup and consent.
@@ -38,7 +40,9 @@ transfers. There is no separate background daemon continuing downloads after Qui
 
 ## Rights and browser limitations
 
-DLM currently has no general open-source license grant. See SOURCE_AVAILABILITY.md;
+The owner confirms distribution rights for DLM's proprietary code, name and artwork.
+Public source viewing grants no permission to copy, modify or redistribute that
+proprietary source. See SOURCE_AVAILABILITY.md;
 third-party licenses remain separate and are bundled under
 DLM.app/Contents/Resources/ThirdPartyNotices. Do not infer redistribution rights from
 the availability of these downloads. Chrome/Edge setup uses developer-mode loading;

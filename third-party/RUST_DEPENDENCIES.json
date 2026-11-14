@@ -1379,7 +1379,8 @@
       "third-party/rust/ring-0.17.14/LICENSE-other-bits",
       "third-party/rust/ring-0.17.14/src/polyfill/once_cell/LICENSE-APACHE",
       "third-party/rust/ring-0.17.14/src/polyfill/once_cell/LICENSE-MIT",
-      "third-party/rust/ring-0.17.14/third_party/fiat/LICENSE"
+      "third-party/rust/ring-0.17.14/third_party/fiat/LICENSE",
+      "third-party/rust/ring-0.17.14/SOURCE-NOTICES.txt"
     ],
     "source": "crates.io",
     "selected_expression": "Apache-2.0 AND ISC",

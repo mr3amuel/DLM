@@ -2,7 +2,9 @@
 
 **PASS for the reviewed source snapshot and local initial commit.** This is a
 technical license/provenance review, not a warranty of legal compliance or approval
-to publish a binary release. Release gates remain false and were not loosened.
+to publish a binary release by itself. The owner has now explicitly accepted this
+review including the ring correction; all four local policy approvals are recorded.
+Workflow safeguards remain intact and no release has been published.
 
 ## Scope and consistency
 
@@ -81,9 +83,10 @@ execution/artifact checks are not a missing license for code copied into this co
 After the first authorized builds, confirm actual link/features and bundled notices,
 including platform-conditional code and final archive contents. Repeat this review
 for dependency/feature changes. Enabling CI/publication is a separate approval, not
-implied by this initial source commit. Native distribution and installation acceptance
-remain pending. Private Vulnerability Reporting must be confirmed by the owner in repository
-settings; local documentation does not establish that it is enabled.
+implied by this initial source commit. Binary redistribution sign-off is now recorded;
+manual installation acceptance remains pending; the owner has accepted ad-hoc
+signing/non-notarization. Private Vulnerability Reporting must be confirmed by the
+owner in repository settings; local documentation does not establish that it is enabled.
 
 ## Actual arm64 binary/package review — 2026-11-14
 
@@ -98,5 +101,38 @@ metadata is not a proof that every listed library contributes live final symbols
 No selected reciprocal source-disclosure license was identified. Notice copying and
 hash checks support compliance with the reviewed preservation obligations; they do
 not authorize public binary distribution, grant a DLM license or replace the owner's
-rights review. Owner approvals remain false and were not modified. Final Intel
-artifacts after the privacy correction must be verified separately before publication.
+rights review. The owner now confirms proprietary distribution rights and free binary use.
+Third-party compliance is a separate review. The owner reports that production and
+DMG workflows passed on both architectures at f9bf207, after the privacy correction;
+this is not an independent inspection of the final published files.
+
+## Owner decisions and recorded compliance sign-off — 2026-11-14
+
+The owner confirms rights in DLM's proprietary code/name/artwork, free download and
+use of official 0.1.0 binaries, proprietary source-available status and acceptance
+of ad-hoc signing/non-notarization with disclosures. SOURCE_AVAILABILITY.md records
+those decisions. No project open-source license or proprietary-source redistribution
+grant is introduced. Third-party rights remain unaffected.
+
+The existing technical evidence covers selected dependency expressions, preserved
+notices, local arm64 resource-byte comparisons and owner-reported both-architecture
+packaging validation. No specific third-party license violation has been identified.
+This is not fabricated legal approval or proof of every redistribution obligation.
+The owner has explicitly accepted the documented binary redistribution checklist
+and the corrected ring review, including cumulative license/data terms. Check the
+final arm64/x86_64 artifact notice inventories against the reviewed versions during
+candidate verification. No new project license or mandatory external legal service
+is required by this technical review.
+
+The owner has now explicitly accepted this review including the corrected ring
+notices; third_party_licenses_reviewed is true. Recheck final release assets if
+dependencies/features change. This decision is not inferred from compilation.
+
+## Final binary redistribution follow-up
+
+See FINAL_METADATA_AND_LICENSE_AUDIT.md for the completed actual-graph and mounted
+artifact investigation. A concrete ring file-level copyright omission was corrected
+with SOURCE-NOTICES.txt and made required by the inventory. The corrected arm64 app
+and real DMG include 270 legal texts. Binary redistribution is now assessed PASS
+for the reviewed contents; the owner has explicitly accepted that assessment, not
+a legal warranty. The updated Intel candidate still requires normal CI verification.

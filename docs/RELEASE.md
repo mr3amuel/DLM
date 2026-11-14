@@ -1,10 +1,11 @@
 # Release operations
 
-The workflow is local preparation until publication is explicitly authorized.
-All scripts/release/policy.json flags remain false. The repository approval variable
-DLM_PUBLICATION_APPROVED=true and reviewed policy flags are required before builds.
-Source visibility without an open-source grant is an approved choice; dependency
-license compliance must still be cleared independently before release.
+All four local scripts/release/policy.json flags are true following explicit owner
+approval, including potentially public Actions artifact distribution and acceptance
+of the corrected ring notices and provenance uncertainty. See PUBLIC_RELEASE_READINESS.md.
+No GitHub setting was changed. DLM_PUBLICATION_APPROVED=true must still be manually
+configured before release workflow builds. Draft creation remains separately gated;
+no draft/public release exists as a result of this local preparation.
 
 Manual workflow dispatch or intentional v<version> tags build separate macos-15
 arm64 and macos-15-intel artifacts. Version/build are in prototypes/swiftui's release
@@ -50,8 +51,8 @@ accidental misuse; they are not a security boundary against someone editing code
 spoofing their own environment. No licensing or public distribution approval is implied.
 
 The ordinary `package.py arm64` / `package.py x86_64` entry still calls the unchanged
-publication preflight. There is no skip-preflight flag. Policy values and the existing
-release workflow remain unchanged. Do not use a new upload action to turn inspection
+publication preflight. There is no skip-preflight flag. Inspection does not change policy values or the existing
+release workflow. Do not use a new upload action to turn inspection
 into unapproved public distribution.
 
 Inspection detaches its unique read-only mount, retries with force if needed, and
@@ -84,28 +85,57 @@ not a `.background` directory. Packaging now compiles/links a temporary headless
 renderer for the selected architecture and validates the mounted PNG byte-for-byte
 against its generated source. Unexpected DMG entries remain rejected. Local arm64
 creation, integrity, mounting, bundle/signature/resource/notice, checksum and cleanup
-checks succeeded. Later production privacy remapping requires renewed Intel CI
-verification; the owner-reported earlier Intel result predates that correction.
+checks succeeded. The owner reports subsequent production and DMG verification success on both
+architectures at f9bf207, including the production privacy remapping correction.
 
 ## First 0.1.0 release approval sequence
 
-See PUBLIC_RELEASE_READINESS.md for the latest scoped local findings. Before any
-release workflow is enabled, the owner must approve binary distribution (including
-potentially public Actions artifacts), source-availability/recipient terms, third-party
-redistribution and final privacy/history/artwork review. This preparation changes no
-approval values. The four committed policy flags and repository approval variables
-remain separate controls, not findings that can be silently set by a build.
+See PUBLIC_RELEASE_READINESS.md for the approval matrix and evidence. Ownership,
+free official binary use, proprietary source availability and acceptance of ad-hoc
+signing/non-notarization are confirmed. Explicit owner approval now also covers
+potentially public Actions artifacts, the corrected third-party review and the
+history/assets/privacy review including provenance uncertainty. These decisions
+are recorded independently of build success; no legal warranty is implied.
 
-Review and commit the corrections, rerun both production and DMG verification
-architectures on that exact revision, and complete manual unsigned-app installation
-acceptance. Then explicitly authorize the approval edits, configure public-release
-reviewers/branch restrictions, and confirm Private Vulnerability Reporting. Only
-then create the version-matching tag and run the intended release workflow. Artifact
-uploads happen in the build jobs before draft approval; they are distribution, even
-when create_draft is false. Verify both checksum sidecars against their downloaded
-DMGs, review draft notes/assets, and manually approve final public publication.
+1. Review these local edits. The owner commits/pushes the reviewed changes when ready;
+   this preparation does neither. Include the untracked ring SOURCE-NOTICES.txt and
+   final audit report, the inventory, tests and all reviewed documentation/policy edits.
+   Run both manual no-upload production/DMG verification workflows on that exact
+   candidate, particularly Intel, before any release tag or distribution run.
+2. Configure repository variables DLM_PUBLICATION_APPROVED=true only after all committed
+   approvals, and DLM_DRAFT_RELEASE_APPROVED=true only for separately authorized draft
+   creation. Configure public-release required reviewers and main branch restriction.
+   Confirm Actions is enabled and repository/organization token policy permits the
+   draft job's contents: write/actions: read. Confirm Private Vulnerability Reporting.
+   Protect release tags where supported. Do not store credentials in repository variables.
+3. Choose the exact reviewed main commit. Version/build must remain 0.1.0/1. Confirm
+   v0.1.0 does not already exist locally/remotely; never force-move a release tag.
+   Review successful verification evidence for the corrected candidate; f9bf207
+   predates the ring attribution supplement and does not verify its Intel package. Final publication packaging
+   revalidates the exact tagged revision, including updated notice documents.
+4. Only after artifact distribution is authorized, the owner creates an annotated
+   v0.1.0 tag at that candidate commit and pushes it. The tag event builds and uploads
+   the two DMGs and sidecars as Actions artifacts; it does NOT create a draft. Inspect
+   both downloaded images and verify each SHA-256 sidecar. Do not assume these artifacts
+   are private. Do not use the no-upload inspection workflow as a distribution bypass.
+5. Keep main at that same candidate commit and manually run Intentional macOS release
+   candidates from main with create_draft=true. This deliberately rebuilds/repackages
+   both architectures; after the protected environment review it verifies all four
+   assets and the matching tag before creating a draft. If main moved, do not retag;
+   resolve the candidate mismatch before proceeding. Do not mix assets from different runs.
+6. Inspect that draft's notes, identity/version, both architecture-specific DMGs and
+   both sidecars. Verify checksums again and complete user-led installation/first-launch
+   acceptance on the supported systems, or explicitly record untested limitations.
+   Confirm free-use/source-available terms and non-notarization/Gatekeeper disclosures
+   are visible. No automatic updater exists; downloads require the application process.
+7. Publish the reviewed draft only through a separate, explicit owner action. Neither
+   tag push nor workflow draft creation performs final publication. Stop on any failed
+   gate, changed candidate, unexpected artifact, privacy issue or unresolved obligation.
 
-The release job creates a draft only; it contains no automatic public-publish command.
-SOURCE_AVAILABILITY.md is not a general open-source grant. The owner should confirm
-intended binary recipient permissions without implying third-party terms are DLM's
-project license. Do not add a project license on the owner's behalf.
+For installation choose arm64 for Apple Silicon or x86_64 for Intel, macOS 13 or later.
+Quit DLM before replacement, open the DMG and copy DLM.app to Applications. The app is
+ad-hoc signed, not notarized; macOS may block it. If the user independently trusts
+this source, follow Apple's per-app approval guidance linked above where available.
+Never globally disable Gatekeeper or remove security attributes as a standard setup
+step. Closing a window may leave the Menu Bar process running; Quit checkpoints and
+stops transfers. There is no persistent background download service.

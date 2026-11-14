@@ -15,9 +15,48 @@ import verify_artifacts
 
 
 class ReleaseChecks(unittest.TestCase):
-    def test_policy_blocks_publication(self):
-        with self.assertRaises(ValueError):
-            package.preflight()
+    def test_owner_approved_policy_passes_preflight(self):
+        self.assertEqual(package.preflight(), package.metadata())
+
+    def test_each_policy_approval_is_independently_required(self):
+        keys = ('publication_approved', 'source_availability_reviewed',
+                'third_party_licenses_reviewed', 'history_and_assets_reviewed')
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            policy = root / 'scripts/release/policy.json'
+            policy.parent.mkdir(parents=True)
+            (root / 'SOURCE_AVAILABILITY.md').write_text('Reviewed fixture terms')
+            approved = dict.fromkeys(keys, True)
+            with patch.object(package, 'ROOT', root):
+                for key in keys:
+                    for value in (False, None, 'true', 1):
+                        with self.subTest(key=key, value=value):
+                            policy.write_text(json.dumps({**approved, key: value}))
+                            with self.assertRaises(ValueError):
+                                package.preflight()
+                    incomplete = {k: v for k, v in approved.items() if k != key}
+                    policy.write_text(json.dumps(incomplete))
+                    with self.assertRaises(ValueError):
+                        package.preflight()
+                policy.write_text(json.dumps(approved))
+                self.assertEqual(package.preflight(), package.metadata())
+                (root / 'SOURCE_AVAILABILITY.md').unlink()
+                with self.assertRaises(ValueError):
+                    package.preflight()
+
+    def test_ring_file_level_attributions_are_required(self):
+        inventory = json.loads((package.ROOT / 'third-party/RUST_DEPENDENCIES.json').read_text())
+        ring = next(p for p in inventory if p['name'] == 'ring')
+        notice = 'third-party/rust/ring-0.17.14/SOURCE-NOTICES.txt'
+        self.assertEqual(ring['version'], '0.17.14')
+        self.assertIn(notice, ring['notices'])
+        text = (package.ROOT / notice).read_text()
+        for attribution in ('Copyright 2018 Trent Clarke.', 'Copyright 2016 David Judd.',
+                            'Copyright 2016 Simon Sapin.', 'Copyright (c) 2014, Intel Corporation.'):
+            self.assertIn(attribution, text)
+        self.assertIn('copyright notice and this permission notice appear in all copies.', text)
+        self.assertIn('src/debug.rs', text)
+        self.assertIn('crypto/fipsmodule/ec/ecp_nistz.c', text)
 
     def test_metadata_and_untrusted_refs(self):
         version, build = package.metadata()

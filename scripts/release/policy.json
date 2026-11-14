@@ -1,6 +1,6 @@
 {
-  "publication_approved": false,
-  "source_availability_reviewed": false,
-  "third_party_licenses_reviewed": false,
-  "history_and_assets_reviewed": false
+  "publication_approved": true,
+  "source_availability_reviewed": true,
+  "third_party_licenses_reviewed": true,
+  "history_and_assets_reviewed": true
 }

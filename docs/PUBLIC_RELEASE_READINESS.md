@@ -1,8 +1,11 @@
 # DLM 0.1.0 final release preparation — 2026-11-14
 
-**HOLD: not authorized for public release.** Local arm64 build/package and scoped
-privacy checks pass after the corrections below. Owner approval and fresh
-post-correction CI verification remain mandatory. No approval flags were changed.
+**OWNER APPROVALS RECORDED — candidate verification remains required.** All four
+local policy flags are true. The owner explicitly accepted third-party redistribution
+including the corrected ring notices, source-history/assets/privacy including the
+provenance uncertainty, and potentially public Actions binary artifacts before any
+draft/published release. No GitHub variable or setting was changed, and no release
+has been created or published. This records decisions, not new runtime acceptance.
 
 ## Evidence and corrections
 
@@ -22,8 +25,9 @@ The existing workflow referenced a missing release-notes file. That file is now
 provided, and the initial release gate requires it to be nonempty before costly
 builds. No authorization condition was removed or altered.
 
-The built and mounted app each contain exactly 296 expected files and two Mach-O
-executables. Source resources and all 269 legal texts match by bytes. No symlinks,
+The earlier built and mounted app contained 296 expected files and two Mach-O
+executables, including 269 matching legal texts. The subsequent ring correction adds
+one legal resource; the corrected arm64 app and DMG contain 270 matching legal texts. No symlinks,
 extra executables, bundled dynamic libraries or DWARF sections were found. System
 and Swift dynamic links are checked. Browser manifests use the production extension
 key, Firefox ID and host identity. Public extension keys are not pairing secrets;
@@ -31,40 +35,69 @@ pairing data is runtime-generated and not part of the image.
 
 DMG metadata/background passed the private path/credential-signature checks. macOS
 com.apple.provenance extended attributes (11-byte opaque system records) remain on
-the files. No personal-text signature was found in them; they were not independently
-decoded or stripped. The owner should include this finding in final metadata review.
+the files. The follow-up below characterizes the eight-byte local tracking identifier;
+the three-byte prefix remains undocumented. The owner explicitly accepts that residual
+uncertainty and possible local correlation. The attributes were not stripped.
 No quarantine/Gatekeeper/security attributes were automatically removed.
 
 ## Rights and distribution
 
-The source-only licensing review is not binary publication approval. Actual resolved
-arm64 dependency versions and license expressions match the reviewed inventory;
-all notices accompany the app. The three installed packaging tools are MIT and
-build-only, not bundled. No new DLM license was selected. The owner must confirm
-binary distribution and intended recipient permissions under SOURCE_AVAILABILITY.md,
-and accept the scoped third-party/asset/metadata review before enabling uploads.
+The owner confirms proprietary code/name/artwork distribution rights, free download
+and use of official 0.1.0 binaries, proprietary source-available terms and acceptance
+of ad-hoc signing/non-notarization with disclosures. SOURCE_AVAILABILITY.md records
+these decisions without granting proprietary-source redistribution rights. Third-party
+license permissions remain unaffected. No OSI license is introduced.
 
-## Workflow behavior and remaining approvals
+Actual resolved arm64 dependency versions and selected license expressions match
+the reviewed inventory; notices accompany the app. The three packaging tools are
+MIT and build-only. No specific third-party violation was found, but technical
+checks do not establish complete legal compliance or constitute reviewer sign-off.
 
-- All four policy booleans remain false: publication_approved,
-  source_availability_reviewed, third_party_licenses_reviewed,
-  history_and_assets_reviewed. No ownership/approval field was edited.
-- Release build jobs require the repository approval variable and committed preflight.
-  Version tags must match 0.1.0. Production identity remains com.dlm.native, build 1.
-- Build jobs upload the exact DMGs/checksums before draft-release approval. Actions
-  artifacts in a public repository are potentially publicly downloadable; owner
-  authorization must cover them, not only the final GitHub Release.
-- Draft creation needs manual dispatch from main, create_draft, a separate repository
-  variable, configured environment rules and the exact version tag at the same commit.
-  Exact downloaded filenames/checksums are checked before gh release create --draft.
-- Required reviewers/branch rules and Private Vulnerability Reporting are GitHub
-  settings and were not inspected or configured locally. An environment name alone
-  does not establish reviewer protection. Final Publish is a human action.
+## Local policy: explicit owner decisions — 2026-11-14
 
-The owner reports successful development, production and DMG CI runs on both
-architectures before these corrections. This review verified only arm64 locally;
-rerun production/package verification on both architectures after committing the
-privacy changes. No real x86_64 artifact was inspected in this local review.
+| Flag | Before this approval → after | Recorded authorization |
+| --- | --- | --- |
+| publication_approved | false → true | Owner explicitly authorizes DLM 0.1.0 installation binaries as potentially public GitHub Actions artifacts before a draft or published GitHub Release exists, as well as the intended public release channel. |
+| source_availability_reviewed | true → true | Previously approved free official binary use and proprietary source-available terms remain unchanged; third-party rights are preserved. |
+| third_party_licenses_reviewed | false → true | Owner explicitly accepts the documented binary redistribution review, including the corrected ring 0.17.14 file-level attribution notices. The technical assessment is not a legal warranty. |
+| history_and_assets_reviewed | false → true | Owner explicitly accepts the documented source-history, assets and privacy review, including residual com.apple.provenance format/correlation uncertainty. |
+
+These explicit decisions satisfy the local policy approvals. They do not establish
+Apple notarization, installation/runtime acceptance, a new Intel packaging result,
+or separate authorization/configuration for workflow draft creation. No new project
+license or proprietary-source redistribution grant is introduced.
+
+## Exact workflow protections
+
+- The release gate needs repository variable DLM_PUBLICATION_APPROVED=true and
+  committed preflight: all four flags must be the JSON boolean true, the availability
+  document must exist, and a tag run must exactly match the committed release version.
+  Nonempty release notes are checked. Build jobs depend on this gate and repeat preflight.
+- Identity remains com.dlm.native, version 0.1.0, build 1. Production Release jobs use
+  macos-15 arm64 and macos-15-intel x86_64. Each packages and uploads only its DMG and
+  SHA-256 sidecar, retained seven days. These are potentially public distribution
+  BEFORE draft-environment approval, even when create_draft is false.
+- Draft creation needs successful builds, manual dispatch from main, create_draft=true,
+  DLM_DRAFT_RELEASE_APPROVED=true and the public-release environment. Configure actual
+  required reviewers and main branch restrictions; the environment name alone is not protection.
+- The draft job validates the exact four filenames and checksums, requires v0.1.0 to
+  resolve to that run's commit, then uses --verify-tag --draft and the committed
+  docs/release/RELEASE_NOTES.md. It cannot automatically publish the draft.
+- Read-only jobs use contents: read; only the draft job requests contents: write and
+  actions: read. Repository/organization token policy must permit those job permissions.
+  No external signing credentials are required for the existing ad-hoc builds.
+- GitHub variables, reviewer/branch protections, token policy and Private Vulnerability
+  Reporting were not inspected or configured. Confirm them manually. See RELEASE.md
+  for the controlled sequence; none of these settings is changed by local preparation.
+
+The owner reports successful production and DMG CI on arm64 and x86_64 at f9bf207,
+after the privacy corrections. This is supplied CI evidence, not a new local run or
+independent Intel artifact inspection. The corrected ring candidate passed a later
+real arm64 build/DMG audit; its updated Intel package still requires CI verification.
+This approval step changes only documentation, policy and focused tests, so no new
+local rebuild or DMG creation is required.
+The eventual release run must validate the exact tagged revision and its updated
+bundled notice/availability documents. No claim is made about unexecuted final assets.
 
 Ad-hoc signatures are not Developer ID or notarization. Downloaded-app Gatekeeper,
 macOS 13 runtime, Finder presentation, actual installation, folder permissions and
@@ -72,6 +105,36 @@ browser handoff need manual acceptance or explicit acceptance of known limitatio
 No automatic updater or separate background download daemon exists. Closing a
 window can leave the Menu Bar process active; Quit stops and checkpoints downloads.
 
-No tag, commit, push, release, upload or owner-approval change was performed by
-this preparation. The final decision is HOLD until the explicit approvals and
-post-correction evidence are complete.
+No tag, commit, push, release or upload was performed by this preparation. All four
+local approvals are recorded. GitHub safeguards and corrected-candidate CI remain
+operational prerequisites before the controlled release sequence.
+
+## Local preparation checks
+
+All 20 focused release-policy/packaging regression tests pass, including independent
+rejection of each missing, false or non-boolean approval and rejection of absent
+availability terms. Packaging subprocesses are mocked in these tests; these results
+are not a new real build or DMG validation. Workflow YAML/matrix/SHA pins, embedded
+shell syntax, Python syntax, notes presence and git diff whitespace/privacy-pattern
+checks pass. Protected build, identity, version, packaging and workflow files are
+byte-for-byte unchanged. No GitHub configuration or remote run was inspected.
+
+## Final metadata and license follow-up
+
+FINAL_METADATA_AND_LICENSE_AUDIT.md supersedes the earlier opaque-provenance and
+license-inventory findings above. Provenance's eight-byte local tracking identifier
+is characterized; the three-byte prefix remains undocumented, with residual local
+correlation uncertainty disclosed. No concrete sensitive metadata was found and no
+security attributes were removed. A ring file-header attribution gap was corrected;
+the updated production arm64 build and actual DMG pass inspection with 270 legal
+texts. Twenty focused tests pass. The owner has now explicitly accepted the review
+and its limitations, as recorded in the approval matrix above. Corrected-candidate
+Intel CI and separately protected draft creation remain outstanding operational steps.
+
+## Approval-step local validation
+
+Release-policy preflight passes with all four booleans true. All 20 focused regression
+tests pass, including independent fail-closed checks for each missing/false/non-boolean
+approval and the required ring supplement. git diff --check passes. Build, packaging,
+workflow and ring resource/inventory bytes are unchanged during this approval step.
+No new build, DMG operation, remote run, variable change or publication was performed.
