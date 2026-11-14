@@ -75,6 +75,32 @@ class ReleaseChecks(unittest.TestCase):
                 (app / 'Contents/Resources/DLMBrand.png').unlink()
                 with self.assertRaises(ValueError): package.verify_bundle(app, 'arm64')
 
+    def test_production_path_flags_preserve_existing_flags_and_spaces(self):
+        build = (package.NATIVE / 'build.sh').read_text()
+        block = build[build.index('# Production panic/source strings'):build.index('architecture=')]
+        with tempfile.TemporaryDirectory(prefix='dlm flags ') as directory:
+            root = Path(directory)
+            env = dict(package.os.environ, configuration='production', repo=str(root / 'source with spaces'),
+                       HOME=str(root / 'synthetic home'), CARGO_HOME=str(root / 'registry with spaces'))
+            for encoded in ['', '-C' + chr(31) + 'opt-level=2']:
+                current = {**env, 'CARGO_ENCODED_RUSTFLAGS': encoded, 'RUSTFLAGS': '-C opt-level=2'}
+                result = subprocess.check_output(["/bin/sh", "-ec", block + '\nprintf \'%s\' "$CARGO_ENCODED_RUSTFLAGS"'], env=current).decode()
+                flags = result.split(chr(31))
+                self.assertEqual(flags[:2], ['-C', 'opt-level=2'])
+                self.assertEqual(flags[-1], '--remap-path-prefix=' + current['repo'] + '=/dlm/source')
+                self.assertIn('--remap-path-prefix=' + current['HOME'] + '=/dlm/build-user', flags)
+
+    def test_production_binary_privacy_guard(self):
+        with tempfile.TemporaryDirectory() as directory:
+            binary = Path(directory) / 'fixture'
+            for data in [b'/' + b'Users/' + b'synthetic/source.rs', b'/' + b'home/' + b'synthetic/file.rs',
+                         b'/' + b'private/tmp/' + b'fixture/build',
+                         b'-----BEGIN ' + b'PRIVATE KEY-----', b'gh' + b'p_' + b'X' * 40]:
+                binary.write_bytes(data)
+                with self.assertRaises(ValueError): package.verify_binary_privacy(binary)
+            binary.write_bytes(b'/dlm/source/module.rs /dlm/cargo/crate/src/lib.rs')
+            package.verify_binary_privacy(binary)
+
     def test_exact_artifacts_and_checksums(self):
         version, _ = package.metadata()
         with tempfile.TemporaryDirectory() as directory:

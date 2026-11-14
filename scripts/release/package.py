@@ -57,6 +57,21 @@ def preflight(ref=''):
     return metadata(ref)
 
 
+
+def verify_binary_privacy(binary):
+    """Fail closed on high-confidence release-binary privacy signatures, without values."""
+    data = binary.read_bytes()
+    patterns = {
+        'home-directory path': rb'/(?:Users|home)/',
+        'temporary build path': rb'/(?:private/tmp|(?:private/)?var/folders)/',
+        'private key': rb'-----BEGIN (?:RSA |EC |OPENSSH |ENCRYPTED )?PRIVATE KEY-----',
+        'provider token': rb'\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|AKIA[A-Z0-9]{16}|sk-proj-[A-Za-z0-9_-]{30,})\b',
+    }
+    for category, pattern in patterns.items():
+        if re.search(pattern, data):
+            raise ValueError('Potential ' + category + ' in production binary; review private diagnostics')
+
+
 def verify_bundle(app, architecture):
     version, build = metadata()
     info = plistlib.loads((app / 'Contents/Info.plist').read_bytes())
@@ -86,6 +101,7 @@ def verify_bundle(app, architecture):
         binary = app / relative
         if not binary.is_file():
             raise ValueError('Required executable missing')
+        verify_binary_privacy(binary)
         if run('lipo', '-archs', str(binary)).decode().split() != [architecture]:
             raise ValueError('Binary architecture mismatch')
         for line in run('otool', '-L', str(binary)).decode().splitlines()[1:]:

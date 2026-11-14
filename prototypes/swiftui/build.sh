@@ -17,6 +17,25 @@ case "$configuration" in
         [ "$profile" = release ] && [ "${DLM_NATIVE_SANDBOX:-0}" = 0 ] || { echo "Production requires Release, non-sandbox configuration" >&2; exit 2; } ;;
     *) echo "Unknown DLM_NATIVE_CONFIGURATION" >&2; exit 2 ;;
 esac
+# Production panic/source strings must not retain the build machine's home path.
+# Encoded flags preserve repository paths containing spaces and existing flags.
+if [ "$configuration" = production ]; then
+    CARGO_ENCODED_RUSTFLAGS="$(python3 - "$repo" <<'PYFLAGS'
+import os
+import sys
+separator = chr(31)
+encoded = os.environ.get("CARGO_ENCODED_RUSTFLAGS")
+flags = encoded.split(separator) if encoded else os.environ.get("RUSTFLAGS", "").split()
+home = os.path.expanduser("~")
+for source, replacement in [(home, "/dlm/build-user"),
+                            (os.environ.get("CARGO_HOME", home + "/.cargo"), "/dlm/cargo"),
+                            (sys.argv[1], "/dlm/source")]:
+    flags.append("--remap-path-prefix=" + source + "=" + replacement)
+print(separator.join(flags))
+PYFLAGS
+)"
+    export CARGO_ENCODED_RUSTFLAGS
+fi
 architecture="${DLM_NATIVE_ARCH:-$(uname -m)}"
 case "$architecture" in
     arm64) rust_target=aarch64-apple-darwin ;;

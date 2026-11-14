@@ -19,7 +19,8 @@ Each headless DMG contains DLM.app, an Applications shortcut and scripted Finder
 presentation using original DLM branding. Bundle identity/version/architecture,
 resources/helpers, linked libraries, signatures and read-only mounted DMG contents
 are verified. SHA-256 sidecars cover finalized bytes; digests alone do not authenticate
-the publisher. CI/Intel packaging and visual acceptance must run after authorization.
+the publisher. Both-architecture CI packaging success has been reported by the owner. Finder and
+installation acceptance remain separate; release-candidate changes require fresh CI checks.
 
 Apps are ad-hoc signed, not Developer ID signed or notarized. Gatekeeper may block
 first launch; follow Apple's per-application guidance at https://support.apple.com/102445
@@ -59,9 +60,9 @@ retries cleanup of marked workspaces. Cancellation, runner loss or an unrecovera
 busy mount can prevent cleanup; leftovers are then confined to the ephemeral runner
 and discarded at teardown. Logs also stay runner-local and are never uploaded.
 
-GitHub-runner packaging, Finder visual acceptance and both-architecture success
-remain unverified until the workflow completes. Local arm64 real-image evidence is
-recorded below; mocked tests alone do not establish packaging success.
+The owner reports successful GitHub-runner packaging on both architectures. This
+does not verify later source changes or Finder/installation behavior. Local arm64
+real-image evidence is recorded below; mocked tests alone do not establish packaging success.
 
 ## Explicit local packaging diagnostics
 
@@ -83,4 +84,28 @@ not a `.background` directory. Packaging now compiles/links a temporary headless
 renderer for the selected architecture and validates the mounted PNG byte-for-byte
 against its generated source. Unexpected DMG entries remain rejected. Local arm64
 creation, integrity, mounting, bundle/signature/resource/notice, checksum and cleanup
-checks succeeded. Intel packaging still requires a real Intel runner test.
+checks succeeded. Later production privacy remapping requires renewed Intel CI
+verification; the owner-reported earlier Intel result predates that correction.
+
+## First 0.1.0 release approval sequence
+
+See PUBLIC_RELEASE_READINESS.md for the latest scoped local findings. Before any
+release workflow is enabled, the owner must approve binary distribution (including
+potentially public Actions artifacts), source-availability/recipient terms, third-party
+redistribution and final privacy/history/artwork review. This preparation changes no
+approval values. The four committed policy flags and repository approval variables
+remain separate controls, not findings that can be silently set by a build.
+
+Review and commit the corrections, rerun both production and DMG verification
+architectures on that exact revision, and complete manual unsigned-app installation
+acceptance. Then explicitly authorize the approval edits, configure public-release
+reviewers/branch restrictions, and confirm Private Vulnerability Reporting. Only
+then create the version-matching tag and run the intended release workflow. Artifact
+uploads happen in the build jobs before draft approval; they are distribution, even
+when create_draft is false. Verify both checksum sidecars against their downloaded
+DMGs, review draft notes/assets, and manually approve final public publication.
+
+The release job creates a draft only; it contains no automatic public-publish command.
+SOURCE_AVAILABILITY.md is not a general open-source grant. The owner should confirm
+intended binary recipient permissions without implying third-party terms are DLM's
+project license. Do not add a project license on the owner's behalf.

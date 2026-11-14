@@ -23,7 +23,10 @@ jobs:
         with:
           persist-credentials: false
       - name: Require committed privacy and license approval; validate tag
-        run: python3 scripts/release/package.py preflight
+        run: |
+          set -euo pipefail
+          python3 scripts/release/package.py preflight
+          test -s docs/release/RELEASE_NOTES.md
   build:
     needs: gate
     strategy:

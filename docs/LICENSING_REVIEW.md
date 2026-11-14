@@ -70,8 +70,9 @@ referenced through the SDK/system and not copied into the source or DMG.
 
 CI-only dmgbuild, ds-store and mac-alias execute during packaging but are not vendored
 or shipped inside DLM.app/DMG. No redistribution of their implementation is authorized
-by this snapshot. Their runner installation terms must be checked before activating
-CI, separately from the reviewed source snapshot. SHA-pinned CI actions likewise
+by this snapshot. Their installed pinned wheel metadata and license texts were reviewed locally as
+MIT for this preparation; they remain build-only and are absent from the audited app.
+Repeat that review if versions or distribution contents change. SHA-pinned CI actions likewise
 execute on runners but their implementation is not vendored or bundled. These future
 execution/artifact checks are not a missing license for code copied into this commit.
 
@@ -81,5 +82,21 @@ After the first authorized builds, confirm actual link/features and bundled noti
 including platform-conditional code and final archive contents. Repeat this review
 for dependency/feature changes. Enabling CI/publication is a separate approval, not
 implied by this initial source commit. Native distribution and installation acceptance
-remain pending. Private Vulnerability Reporting will be enabled manually after
-repository creation; documentation does not claim it is already enabled.
+remain pending. Private Vulnerability Reporting must be confirmed by the owner in repository
+settings; local documentation does not establish that it is enabled.
+
+## Actual arm64 binary/package review — 2026-11-14
+
+A fresh production Release build and read-only mounted DMG were checked against the
+source resource/notice hashes. All 269 legal texts and the conservative inventory are
+present. Resolved arm64 production/helper and adapter metadata contain 148 third-party
+package versions, all covered by the 149-package reviewed superset with matching
+license expressions. Actual linked libraries are system/Swift libraries; there are no
+extra bundled dylibs, frameworks or Python packaging tools. Static linkage means
+metadata is not a proof that every listed library contributes live final symbols.
+
+No selected reciprocal source-disclosure license was identified. Notice copying and
+hash checks support compliance with the reviewed preservation obligations; they do
+not authorize public binary distribution, grant a DLM license or replace the owner's
+rights review. Owner approvals remain false and were not modified. Final Intel
+artifacts after the privacy correction must be verified separately before publication.
